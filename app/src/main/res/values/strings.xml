@@ -5,6 +5,7 @@
 
     <string name="or">또는</string>
     <string name="login">로그인</string>
+    <string name="kakao_login">카카오 로그인</string>
     <string name="password">비밀번호</string>
 
     <string name="do_sign_up">가입하기</string>
