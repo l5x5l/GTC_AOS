@@ -15,3 +15,4 @@
 local.properties
 /app/src/androidTest/java/com/softsquared/gridge_test/android/instagram_challenge/ExampleInstrumentedTest.kt
 /app/src/test/java/com/softsquared/gridge_test/android/instagram_challenge/ExampleUnitTest.kt
+/.idea/deploymentTargetDropDown.xml
