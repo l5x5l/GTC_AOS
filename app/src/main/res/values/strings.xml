@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">instagram challenge</string>
+
+    <string name="from_eng">from</string>
+
+    <string name="or">또는</string>
+    <string name="login">로그인</string>
+    <string name="password">비밀번호</string>
+
+    <string name="do_sign_up">가입하기</string>
+
+    <string name="question_do_not_have_an_account">계정이 없으신가요?</string>
+    <string name="question_forgot_password">비밀번호를 잊으셨나요?</string>
+
+    <string name="hint_message_login_id">전화번호, 사용자 이름 또는 이메일</string>
 </resources>
