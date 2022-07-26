@@ -1,8 +1,8 @@
 package com.softsquared.gridge_test.android.instagram_challenge.base_component
 
 import androidx.databinding.BindingAdapter
-import com.softsquared.gridge_test.android.instagram_challenge.custom_component.ViewLoginEditText
-import com.softsquared.gridge_test.android.instagram_challenge.data.StringWrapper
+import com.softsquared.gridge_test.android.instagram_challenge.custom_view.ViewLoginEditText
+import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.StringWrapper
 
 object BindingAdapters {
 //    @JvmStatic

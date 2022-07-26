@@ -1,4 +1,4 @@
-package com.softsquared.gridge_test.android.instagram_challenge.data
+package com.softsquared.gridge_test.android.instagram_challenge.base_component
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.FlowCollector
