@@ -10,7 +10,8 @@ import java.util.concurrent.TimeUnit
 
 class GlobalApplication : Application() {
     companion object {
-        const val API_URL = "https://prod.songilcraft.shop/"
+
+        const val API_URL = "https://challenge-api.gridge.co.kr/"
         const val X_ACCESS_TOKEN = ""
         lateinit var sRetrofit: Retrofit
         lateinit var globalSharedPreferences: SharedPreferences

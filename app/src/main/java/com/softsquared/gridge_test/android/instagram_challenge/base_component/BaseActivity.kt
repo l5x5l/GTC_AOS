@@ -1,6 +1,7 @@
 package com.softsquared.gridge_test.android.instagram_challenge.base_component
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -22,4 +23,8 @@ abstract class BaseActivity<B : ViewBinding> (@LayoutRes val layoutRes : Int) : 
     open fun setRecyclerView(){}
 
     open fun preLoad() {}
+
+    fun showSimpleToastMessage(message : String){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
 }
