@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="stringWrapper"
+            type="com.softsquared.gridge_test.android.instagram_challenge.data.in_app.StringWrapper" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/shape_login_edittext"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@={stringWrapper.value}"
+            tools:text="test12345"
+            android:padding="16dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivbtn_clear_text"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="@id/et_input"
+            app:layout_constraintTop_toTopOf="@id/et_input"
+            app:layout_constraintBottom_toBottomOf="@id/et_input"
+            app:layout_constraintDimensionRatio="1:1"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_error_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/et_input"
+            app:layout_constraintStart_toStartOf="@id/et_input"
+            android:layout_marginTop="@dimen/interval_small"
+            android:visibility="gone"
+            tools:text="사용자 이름 test을(를) 사용할 수 없습니다"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
