@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid
+        android:color="@color/kakao_yellow"/>
+    <corners
+        android:radius="12px"/>
+    <!-- 카카오 디자인 문서상 컨테이너 박스의 radius 는 12px -->
+</shape>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="login_button" parent="TextAppearance.AppCompat.Button">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:background">@drawable/selector_login_button</item>
+    </style>
+
+    <style name="text_caption" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="text_default" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="text_title" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
