@@ -4,5 +4,5 @@ data class BaseApiResponse<T>(
     val isSuccess : Boolean = false,
     val code : Int = 0,
     val message : String ?= null,
-    val value : T ?= null
+    val result : T ?= null
 )

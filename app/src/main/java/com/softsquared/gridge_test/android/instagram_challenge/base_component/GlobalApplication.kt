@@ -12,9 +12,18 @@ class GlobalApplication : Application() {
     companion object {
 
         const val API_URL = "https://challenge-api.gridge.co.kr/"
-        const val X_ACCESS_TOKEN = ""
+        const val X_ACCESS_TOKEN = "x-access-token"
         lateinit var sRetrofit: Retrofit
         lateinit var globalSharedPreferences: SharedPreferences
+
+        fun saveJwtToken(jwtToken : String){
+            if (::globalSharedPreferences.isInitialized) {
+                with (globalSharedPreferences.edit()){
+                    putString(X_ACCESS_TOKEN, jwtToken)
+                    apply()
+                }
+            }
+        }
     }
 
     override fun onCreate() {
