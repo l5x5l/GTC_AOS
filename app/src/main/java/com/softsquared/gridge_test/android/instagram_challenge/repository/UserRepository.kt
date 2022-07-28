@@ -2,6 +2,8 @@ package com.softsquared.gridge_test.android.instagram_challenge.repository
 
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseApiResponse
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.GlobalApplication
+import com.softsquared.gridge_test.android.instagram_challenge.data.api.request.RequestUserSignIn
+import com.softsquared.gridge_test.android.instagram_challenge.data.api.response.ResponseUserSignIn
 import com.softsquared.gridge_test.android.instagram_challenge.retrofit_interface.UserRetrofitInterface
 import retrofit2.HttpException
 
@@ -22,6 +24,14 @@ class UserRepository {
     suspend fun getAutoLogin() : BaseApiResponse<Nothing> {
         val result = retrofitImpl.getAutoSignIn()
         if (result.isSuccessful) {
+            return result.body()!!
+        }
+        throw HttpException(result)
+    }
+
+    suspend fun postLogin(loginId : String, password : String) : BaseApiResponse<ResponseUserSignIn> {
+        val result = retrofitImpl.postSignIn(RequestUserSignIn(loginId = loginId, password = password))
+        if (result.isSuccessful){
             return result.body()!!
         }
         throw HttpException(result)

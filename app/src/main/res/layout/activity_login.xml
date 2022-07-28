@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.softsquared.gridge_test.android.instagram_challenge.page.login.LoginViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -54,6 +60,10 @@
             app:layout_constraintEnd_toEndOf="@id/guide_content_end"
             app:layout_constraintTop_toBottomOf="@id/iv_insta_text_logo"
             app:layout_constraintBottom_toTopOf="@id/view_login_edittext_password"
+            app:hint_message="@string/hint_message_login_id"
+            app:input_type="text"
+            app:max_length="20"
+            innerText="@{viewModel.loginId}"
             android:layout_marginTop="@dimen/interval_large"
             tools:layout_height="56dp"/>
 
@@ -65,8 +75,24 @@
             app:layout_constraintEnd_toEndOf="@id/guide_content_end"
             app:layout_constraintTop_toBottomOf="@id/view_login_edittext_id"
             app:layout_constraintBottom_toTopOf="@id/tvbtn_forgot_password"
+            app:hint_message="@string/password"
+            app:input_type="password"
+            app:max_length="20"
+            innerText="@{viewModel.password}"
             android:layout_marginTop="@dimen/interval_middle"
+            android:layout_marginBottom="@dimen/interval_small"
             tools:layout_height="56dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivbtn_toggle_password_visibility"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintTop_toTopOf="@id/view_login_edittext_password"
+            app:layout_constraintBottom_toBottomOf="@id/view_login_edittext_password"
+            app:layout_constraintEnd_toEndOf="@id/view_login_edittext_password"
+            android:padding="12dp"
+            android:src="@drawable/ic_eye_deactivate"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvbtn_forgot_password"
@@ -75,7 +101,10 @@
             app:layout_constraintTop_toBottomOf="@id/view_login_edittext_password"
             app:layout_constraintBottom_toTopOf="@id/btn_login"
             app:layout_constraintEnd_toEndOf="@id/guide_content_end"
-            android:layout_marginTop="@dimen/interval_middle"
+            style="@style/text_caption"
+            android:textColor="@color/blue"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             android:text="@string/question_forgot_password"/>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -86,7 +115,10 @@
             app:layout_constraintEnd_toEndOf="@id/guide_content_end"
             app:layout_constraintTop_toBottomOf="@id/tvbtn_forgot_password"
             app:layout_constraintBottom_toTopOf="@id/tv_or"
-            android:layout_marginTop="@dimen/interval_large"
+            style="@style/login_button"
+            android:onClick="@{() -> viewModel.checkIdPasswordValidation()}"
+            android:enabled="@{viewModel.loginButtonState}"
+            android:layout_marginTop="@dimen/interval_middle"
             android:text="@string/login"/>
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -97,6 +129,7 @@
             app:layout_constraintBottom_toTopOf="@id/btn_kakao_login"
             app:layout_constraintStart_toStartOf="@id/guide_content_start"
             app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            style="@style/text_caption"
             android:layout_marginTop="@dimen/interval_large"
             android:text="@string/or"/>
 
@@ -124,22 +157,29 @@
             android:id="@+id/btn_kakao_login"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            app:layout_constraintStart_toStartOf="@id/guide_content_start"
-            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            app:layout_constraintStart_toStartOf="@id/guide_text_logo_start"
+            app:layout_constraintEnd_toEndOf="@id/guide_text_logo_end"
             app:layout_constraintTop_toBottomOf="@id/tv_or"
             app:layout_constraintBottom_toTopOf="@id/line_separator_bottom"
+            android:background="@drawable/shape_kakao_login_buton"
             android:layout_marginTop="@dimen/interval_large"
+            android:paddingHorizontal="4dp"
             android:gravity="center"
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="40dp"
-                android:layout_height="40dp"/>
+                android:layout_height="40dp"
+                android:padding="@dimen/interval_small"
+                android:scaleType="fitCenter"
+                android:src="@drawable/kakao_icon"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/kakao_login"
+                android:textColor="@color/black"
+                style="@style/text_caption"
                 android:layout_weight="1"
                 android:gravity="center"/>
 
@@ -164,6 +204,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/tvbtn_sign_up"
             app:layout_constraintHorizontal_chainStyle="packed"
+            style="@style/text_caption"
             android:text="@string/question_do_not_have_an_account"/>
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -176,6 +217,8 @@
             app:layout_constraintBottom_toBottomOf="@id/tv_do_not_have_an_account"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tv_do_not_have_an_account"
+            style="@style/text_caption"
+            android:textColor="@color/blue"
             android:text="@string/do_sign_up"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
