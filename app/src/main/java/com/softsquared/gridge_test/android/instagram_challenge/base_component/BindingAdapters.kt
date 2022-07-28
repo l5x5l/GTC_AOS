@@ -5,11 +5,7 @@ import com.softsquared.gridge_test.android.instagram_challenge.custom_view.ViewL
 import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.StringWrapper
 
 object BindingAdapters {
-//    @JvmStatic
-//    @BindingAdapter("innerText")
-//    fun setInnerText(view : ViewEditText, textWrapper: StringWrapper) {
-//        view.bind(textWrapper)
-//    }
+
     @JvmStatic
     @BindingAdapter("innerText")
     fun setInnerText(view : ViewLoginEditText, stringWrapper: StringWrapper) {
@@ -18,7 +14,7 @@ object BindingAdapters {
 
     @JvmStatic
     @BindingAdapter("errorMessage")
-    fun setErrorMessage(view : ViewLoginEditText, errorString : String) {
+    fun setErrorMessage(view : ViewLoginEditText, errorString : String = "") {
         view.setErrorMessage(errorString)
     }
 }
