@@ -20,8 +20,11 @@
             android:background="@drawable/shape_login_edittext"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:maxLines="1"
+            android:textCursorDrawable="@drawable/shape_login_edit_text_cursor"
             android:text="@={stringWrapper.value}"
-            tools:text="test12345"
+            android:textSize="14sp"
+            tools:hint="test12345"
             android:padding="16dp"/>
 
         <androidx.appcompat.widget.AppCompatImageView
