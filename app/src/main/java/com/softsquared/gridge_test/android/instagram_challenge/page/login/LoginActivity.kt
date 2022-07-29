@@ -1,5 +1,6 @@
 package com.softsquared.gridge_test.android.instagram_challenge.page.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.widget.AppCompatImageView
@@ -10,6 +11,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.softsquared.gridge_test.android.instagram_challenge.R
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseActivity
 import com.softsquared.gridge_test.android.instagram_challenge.databinding.ActivityLoginBinding
+import com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.base.SignUpActivity
 import kotlinx.coroutines.launch
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
@@ -39,7 +41,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                                 message = getString(R.string.description_cannot_founc_account, viewModel.loginId.value),
                                 positiveWord = getString(R.string.do_sign_up), negativeWord = getString(R.string.try_again),
                                 positiveCallback = {
-                                    Log.d("!!!!", "click positive")
+                                    val intent = Intent(baseContext, SignUpActivity::class.java)
+                                    startActivity(intent)
                                 },
                                 negativeCallback = {
                                     Log.d("!!!!", "click positive")
@@ -65,6 +68,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                     imageView.setImageResource(R.drawable.ic_eye_activate)
                 }
             }
+        }
+
+        binding.tvbtnSignUp.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
         }
     }
 }

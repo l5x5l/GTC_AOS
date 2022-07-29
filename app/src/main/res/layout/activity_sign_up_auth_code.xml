@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.auth_code.SignUpAuthCodeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_content_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/layout_padding"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_content_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/layout_padding"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            style="@style/text_title"
+            android:layout_marginTop="@dimen/interval_extreme"
+            tools:text="+821012345678번으로\n전송된 인증 코드를 입력하세요."
+            android:text="@{@string/input_auth_code_sent_to_phone_number(viewModel.internationalNumber, viewModel.phoneNumber)}"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvbtn_change_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintEnd_toStartOf="@id/tv_or"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:layout_marginTop="@dimen/interval_small"
+            android:paddingVertical="@dimen/interval_small"
+            android:text="@string/change_phone_number"
+            android:textColor="@color/blue"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_or"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/tvbtn_change_phone_number"
+            app:layout_constraintBottom_toBottomOf="@id/tvbtn_change_phone_number"
+            app:layout_constraintStart_toEndOf="@id/tvbtn_change_phone_number"
+            app:layout_constraintEnd_toStartOf="@id/tvbtn_resend_sms"
+            android:layout_marginHorizontal="4dp"
+            android:text="@string/or"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvbtn_resend_sms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/tvbtn_change_phone_number"
+            app:layout_constraintBottom_toBottomOf="@id/tvbtn_change_phone_number"
+            app:layout_constraintStart_toEndOf="@id/tv_or"
+            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            android:paddingVertical="@dimen/interval_small"
+            android:text="@string/resend_sms"
+            android:textColor="@color/blue"/>
+
+        <com.softsquared.gridge_test.android.instagram_challenge.custom_view.ViewLoginEditText
+            android:id="@+id/view_sign_up_auth_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:layout_height="56dp"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            app:layout_constraintTop_toBottomOf="@id/tvbtn_change_phone_number"
+            android:layout_marginTop="@dimen/interval_middle"
+            app:hint_message="@string/auth_code"
+            app:input_type="number"
+            app:max_length="6"
+            innerText="@{viewModel.authCode}"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_next"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            app:layout_constraintTop_toBottomOf="@id/view_sign_up_auth_code"
+            android:enabled="@{viewModel.nextButtonState}"
+            style="@style/login_button"
+            android:layout_marginTop="@dimen/interval_large"
+            android:text="@string/login"/>
+
+        <View
+            android:id="@+id/line_bottom_separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="?attr/actionBarSize"
+            android:background="@color/gray50"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvbtn_move_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line_bottom_separator"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:padding="16dp"
+            android:text="@string/move_back"
+            android:textColor="@color/blue"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

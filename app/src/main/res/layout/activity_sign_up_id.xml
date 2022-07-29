@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_content_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/layout_padding"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_content_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/layout_padding"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivbtn_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_baseline_arrow_left_24"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            style="@style/text_title"
+            android:layout_marginTop="@dimen/interval_extreme"
+            android:text="@string/input_phone_number_or_email_address"/>
+
+        <com.softsquared.gridge_test.android.instagram_challenge.custom_view.ViewLoginIdSelectButton
+            android:id="@+id/viewbtn_use_phone"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="@dimen/interval_large"
+            app:is_default="true"
+            app:login_id_type="@string/phone_number"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintEnd_toStartOf="@id/viewbtn_use_email"/>
+
+        <com.softsquared.gridge_test.android.instagram_challenge.custom_view.ViewLoginIdSelectButton
+            android:id="@+id/viewbtn_use_email"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:login_id_type="@string/email"
+            app:layout_constraintTop_toTopOf="@id/viewbtn_use_phone"
+            app:layout_constraintBottom_toBottomOf="@id/viewbtn_use_phone"
+            app:layout_constraintStart_toEndOf="@id/viewbtn_use_phone"
+            app:layout_constraintEnd_toEndOf="@id/guide_content_end"/>
+
+        <FrameLayout
+            android:id="@+id/layout_fragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewbtn_use_phone"
+            app:layout_constraintBottom_toTopOf="@id/view_bottom_area"/>
+
+        <include
+            android:id="@+id/view_bottom_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            layout="@layout/view_login_botton_area"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

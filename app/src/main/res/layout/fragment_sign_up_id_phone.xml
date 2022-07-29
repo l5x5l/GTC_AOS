@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.id.phone_number.SignUpIdPhoneViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/layout_padding">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/interval_middle"
+            android:background="@drawable/shape_login_edittext">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_international_number"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/blue"
+                tools:text="KR +82"
+                android:text="@{viewModel.internationalNumber}"
+                android:paddingHorizontal="20dp"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toEndOf="@id/tv_international_number"
+                android:background="@color/gray100"
+                android:layout_marginVertical="8dp"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_phone"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="@string/phone_number"
+                android:textCursorDrawable="@drawable/shape_login_edit_text_cursor"
+                android:paddingHorizontal="20dp"
+                android:text="@={viewModel.phoneNumber}"
+                android:maxLength="11"
+                android:inputType="number"
+                app:layout_constraintStart_toEndOf="@id/tv_international_number"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_next"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_edittext"
+            android:enabled="@{viewModel.nextButtonState}"
+            style="@style/login_button"
+            android:layout_marginTop="@dimen/interval_middle"
+            android:text="@string/next"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_description_input_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/btn_next"
+            android:layout_marginTop="@dimen/interval_middle"
+            android:text="@string/description_input_number"
+            style="@style/text_caption"
+            android:gravity="center"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_or"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_description_input_phone_number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/text_caption"
+            android:layout_marginTop="@dimen/interval_large"
+            android:text="@string/or"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_or"
+            app:layout_constraintTop_toTopOf="@id/tv_or"
+            app:layout_constraintBottom_toBottomOf="@id/tv_or"
+            android:layout_marginEnd="@dimen/interval_large"
+            android:background="@color/gray50"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_or"
+            app:layout_constraintTop_toTopOf="@id/tv_or"
+            app:layout_constraintBottom_toBottomOf="@id/tv_or"
+            android:layout_marginStart="@dimen/interval_large"
+            android:background="@color/gray50"/>
+
+        <LinearLayout
+            android:id="@+id/btn_kakao_login"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_or"
+            android:background="@drawable/shape_kakao_login_buton"
+            android:layout_marginTop="@dimen/interval_large"
+            android:paddingHorizontal="4dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="12dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/kakao_icon"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/kakao_login"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
