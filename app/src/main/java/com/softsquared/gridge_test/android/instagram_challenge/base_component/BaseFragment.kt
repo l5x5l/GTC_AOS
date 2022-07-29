@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 
-class BaseFragment<B : ViewBinding> (private val bind : (View) -> B, @LayoutRes private val layoutResId : Int) : Fragment() {
+abstract class BaseFragment<B : ViewBinding> (private val bind : (View) -> B, @LayoutRes private val layoutResId : Int) : Fragment() {
     private var _binding : B ?= null
     protected val binding get() = _binding!!
 
