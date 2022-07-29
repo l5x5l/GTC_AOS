@@ -2,11 +2,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
     <data>
         <variable
             name="viewModel"
-            type="com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.password.SignUpPasswordViewModel" />
+            type="com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.user_name.SignUpUserNameViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,46 +28,59 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/guide_content_start"
             app:layout_constraintEnd_toEndOf="@id/guide_content_end"
             app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            style="@style/text_title"
             android:layout_marginTop="@dimen/interval_extreme"
-            android:text="@string/create_password"
-            style="@style/text_title"/>
+            android:text="@string/create_user_name"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_description_create_user_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            android:layout_marginTop="@dimen/interval_middle"
+            android:text="@string/description_create_user_name"
+            android:gravity="center"/>
 
         <com.softsquared.gridge_test.android.instagram_challenge.custom_view.ViewLoginEditText
-            android:id="@+id/view_edittext_password"
+            android:id="@+id/view_login_edittext_user_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/guide_content_start"
             app:layout_constraintEnd_toEndOf="@id/guide_content_end"
-            app:layout_constraintTop_toBottomOf="@id/tv_title"
-            app:input_type="password"
+            app:layout_constraintTop_toBottomOf="@id/tv_description_create_user_name"
+            tools:layout_height="56dp"
+            app:hint_message="@string/user_name"
+            app:input_type="text"
             app:max_length="20"
-            app:hint_message="@string/password"
-            innerText="@{viewModel.password}"
-            android:layout_marginTop="56dp"
-            tools:layout_height="56dp"/>
+            app:use_default_delete_button="false"
+            innerText="@{viewModel.userName}"
+            android:layout_marginTop="@dimen/interval_large"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_next"
             android:layout_width="0dp"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="@dimen/button_height"
             app:layout_constraintStart_toStartOf="@id/guide_content_start"
             app:layout_constraintEnd_toEndOf="@id/guide_content_end"
-            app:layout_constraintTop_toBottomOf="@id/view_edittext_password"
+            app:layout_constraintTop_toBottomOf="@id/view_login_edittext_user_name"
+            android:layout_marginTop="@dimen/interval_large"
             style="@style/login_button"
-            android:enabled="@{viewModel.nextButtonState}"
-            android:layout_marginTop="56dp"
             android:text="@string/next"/>
 
         <include
             android:id="@+id/view_bottom_area"
             layout="@layout/view_login_botton_area"
-            android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

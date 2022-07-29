@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_cake_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_cake_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.7"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_content_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/layout_padding"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_content_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/layout_padding"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_cake"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guide_cake_start"
+            app:layout_constraintEnd_toEndOf="@id/guide_cake_end"
+            android:layout_marginTop="@dimen/interval_middle"
+            android:src="@drawable/ic_cake"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_add_birthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/iv_cake"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/add_birthday"
+            style="@style/text_title"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_not_include_open_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            app:layout_constraintTop_toBottomOf="@id/tv_add_birthday"
+            android:text="@string/not_include_open_profile"
+            android:layout_marginTop="@dimen/interval_middle"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvbtn_why_input_birthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            app:layout_constraintTop_toBottomOf="@id/tv_not_include_open_profile"
+            android:layout_marginTop="@dimen/interval_small"
+            android:textColor="@color/deep_blue"
+            android:text="@string/why_input_birthday"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            app:layout_constraintTop_toBottomOf="@id/tvbtn_why_input_birthday"
+            android:layout_marginTop="@dimen/interval_large"
+            android:paddingHorizontal="@dimen/interval_small"
+            android:background="@drawable/shape_birthday_edittext_area">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_birthday"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="@null"
+                tools:hint="2022년 7월 18일"
+                android:focusable="false"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="7세"/>
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_description_input_birthday"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/interval_middle"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            app:layout_constraintBottom_toTopOf="@id/line_bottom_separator"
+            android:layout_marginBottom="@dimen/interval_small"
+            style="@style/text_caption"
+            android:text="@string/description_input_birthday"/>
+
+
+        <View
+            android:id="@+id/line_bottom_separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toTopOf="@id/btn_next"
+            android:layout_marginBottom="@dimen/interval_middle"
+            android:background="@color/gray50"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_next"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="@dimen/interval_middle"
+            style="@style/login_button"
+            android:text="@string/next"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

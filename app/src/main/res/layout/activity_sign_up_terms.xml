@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <data>
-        <variable
-            name="viewModel"
-            type="com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.password.SignUpPasswordViewModel" />
-    </data>
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -29,46 +22,47 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/guide_content_start"
             app:layout_constraintEnd_toEndOf="@id/guide_content_end"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="@dimen/interval_extreme"
-            android:text="@string/create_password"
-            style="@style/text_title"/>
+            android:text="@string/agree_to_terms"
+            style="@style/text_title"
+            android:gravity="center"/>
 
-        <com.softsquared.gridge_test.android.instagram_challenge.custom_view.ViewLoginEditText
-            android:id="@+id/view_edittext_password"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_description_agree_to_terms"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/guide_content_start"
             app:layout_constraintEnd_toEndOf="@id/guide_content_end"
             app:layout_constraintTop_toBottomOf="@id/tv_title"
-            app:input_type="password"
-            app:max_length="20"
-            app:hint_message="@string/password"
-            innerText="@{viewModel.password}"
-            android:layout_marginTop="56dp"
-            tools:layout_height="56dp"/>
+            android:paddingHorizontal="@dimen/layout_padding"
+            android:layout_marginTop="@dimen/interval_middle"
+            android:text="@string/description_agree_to_terms"
+            android:gravity="center"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray50"
+            app:layout_constraintBottom_toTopOf="@id/btn_next"
+            android:layout_marginBottom="@dimen/interval_middle"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_next"
             android:layout_width="0dp"
-            android:layout_height="?attr/actionBarSize"
-            app:layout_constraintStart_toStartOf="@id/guide_content_start"
-            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
-            app:layout_constraintTop_toBottomOf="@id/view_edittext_password"
+            android:layout_height="@dimen/button_height"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="@dimen/interval_middle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/interval_middle"
             style="@style/login_button"
-            android:enabled="@{viewModel.nextButtonState}"
-            android:layout_marginTop="56dp"
             android:text="@string/next"/>
 
-        <include
-            android:id="@+id/view_bottom_area"
-            layout="@layout/view_login_botton_area"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

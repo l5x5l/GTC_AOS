@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.confirmation.SignUpConfirmationViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_content_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/layout_padding"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_content_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/layout_padding"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="56dp"
+            android:gravity="center"
+            android:text="@{@string/question_create_account_with_user_name(viewModel.userName)}"
+            style="@style/text_title"
+            tools:text="그리드테스트\n님으로 가입하시겠어요?"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            android:layout_marginTop="@dimen/interval_middle"
+            android:text="@string/description_create_account_confirmation"
+            android:gravity="center"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toTopOf="@id/btn_sign_up"
+            android:layout_marginBottom="@dimen/interval_middle"
+            android:background="@color/gray50"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sign_up"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            app:layout_constraintBottom_toTopOf="@id/tv_already_have_an_account"
+            style="@style/login_button"
+            android:layout_marginTop="56dp"
+            android:text="@string/do_sign_up"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_already_have_an_account"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvbtn_login"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            style="@style/text_caption"
+            android:text="@string/question_already_have_an_account"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvbtn_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            app:layout_constraintTop_toTopOf="@id/tv_already_have_an_account"
+            app:layout_constraintBottom_toBottomOf="@id/tv_already_have_an_account"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_already_have_an_account"
+            style="@style/text_caption"
+            android:textColor="@color/blue"
+            android:text="@string/login"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
