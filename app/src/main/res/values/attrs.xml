@@ -10,4 +10,8 @@
         </attr>
         <attr name="max_length" format="integer"/>
     </declare-styleable>
+    <declare-styleable name="loginIdSelectButton">
+        <attr name="login_id_type" format="string"/>
+        <attr name="is_default" format="boolean"/>
+    </declare-styleable>
 </resources>

@@ -7,17 +7,38 @@
     <string name="login">로그인</string>
     <string name="kakao_login">카카오 로그인</string>
     <string name="password">비밀번호</string>
+    <string name="phone_number">전화번호</string>
+    <string name="email">이메일</string>
+    <string name="next">다음</string>
+    <string name="name">이름</string>
+    <string name="add_name">이름 추가</string>
+    <string name="change_phone_number">전화번호 변경</string>
+    <string name="resend_sms">SMS 재전송</string>
+    <string name="auth_code">인증 코드</string>
 
     <string name="try_again">다시 시도</string>
     <string name="do_sign_up">가입하기</string>
+    <string name="move_back">돌아가기</string>
+    <string name="create_password">비밀번호 만들기</string>
 
+    <string name="input_phone_number_or_email_address">전화번호 또는 이메일 주소 입력</string>
+    <string name="sign_up_by_phone_number_or_email_address">휴대폰 번호 또는 이메일 주소로 가입</string>
+    <string name="input_auth_code_sent_to_phone_number">%s%s번으로\n전송된 인증코드를 입력하세요.</string>
+
+    <string name="message_induce_sign_up">친구들의 사진과 동영상으로 보려면 가입하세요.</string>
     <string name="message_cannot_found_account">계정을 찾을 수 없음</string>
+
+    <string name="description_input_number">보안 및 로그인 목적으로 Instagram에서 보내는\nSMS 알림을 수신할 수 있습니다.</string>
     <string name="description_cannot_founc_account">
         %s에 연결된 계정을 찾을 수 없습니다. 다른 전화번호나 이메일 주소를 사용해보세요. Instagram 계정이 없으면 가입할 수 있습니다.
     </string>
+    <string name="description_input_name">친구들이 회원님을 찾을 수 있도록 이름을 추가하세요.</string>
 
     <string name="question_do_not_have_an_account">계정이 없으신가요?</string>
+    <string name="question_already_have_an_account">이미 계정이 있으신가요?</string>
     <string name="question_forgot_password">비밀번호를 잊으셨나요?</string>
 
     <string name="hint_message_login_id">전화번호, 사용자 이름 또는 이메일</string>
+    
+    <string name="not_progress_email_process">이메일은 진행하지 않습니다.</string>
 </resources>

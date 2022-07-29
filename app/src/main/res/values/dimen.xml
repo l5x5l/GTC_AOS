@@ -7,4 +7,6 @@
 
     <dimen name="radius_small">8dp</dimen>
     <dimen name="radius_middle">16dp</dimen>
+
+    <dimen name="layout_padding">32dp</dimen>
 </resources>
