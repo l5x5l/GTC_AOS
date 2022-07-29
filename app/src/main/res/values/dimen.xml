@@ -9,4 +9,6 @@
     <dimen name="radius_middle">16dp</dimen>
 
     <dimen name="layout_padding">32dp</dimen>
+
+    <dimen name="button_height">48dp</dimen>
 </resources>
