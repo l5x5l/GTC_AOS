@@ -34,6 +34,10 @@
             app:layout_constraintEnd_toEndOf="@id/et_input"
             app:layout_constraintTop_toTopOf="@id/et_input"
             app:layout_constraintBottom_toBottomOf="@id/et_input"
+            android:src="@drawable/ic_delete"
+            android:layout_margin="4dp"
+            android:padding="8dp"
+            android:visibility="invisible"
             app:layout_constraintDimensionRatio="1:1"/>
 
         <androidx.appcompat.widget.AppCompatTextView

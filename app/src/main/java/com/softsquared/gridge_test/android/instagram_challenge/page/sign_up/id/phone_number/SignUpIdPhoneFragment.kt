@@ -30,6 +30,11 @@ class SignUpIdPhoneFragment : BaseFragment<FragmentSignUpIdPhoneBinding>(Fragmen
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun afterTextChanged(p0: Editable?) {
+                if (p0.toString().isNotEmpty()) {
+                    binding.ivbtnClearText.visibility = View.VISIBLE
+                } else {
+                    binding.ivbtnClearText.visibility = View.GONE
+                }
                 viewModel.checkNextButtonState()
             }
         })
@@ -38,6 +43,10 @@ class SignUpIdPhoneFragment : BaseFragment<FragmentSignUpIdPhoneBinding>(Fragmen
             viewModel.applyToSignUpData()
             val intent = Intent(activity, SignUpAuthCodeActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.ivbtnClearText.setOnClickListener {
+            binding.etPhone.setText("")
         }
     }
 }

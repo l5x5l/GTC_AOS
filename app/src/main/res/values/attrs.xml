@@ -9,6 +9,7 @@
             <enum name="password" value="129"/>
         </attr>
         <attr name="max_length" format="integer"/>
+        <attr name="use_default_delete_button" format="boolean"/>
     </declare-styleable>
     <declare-styleable name="loginIdSelectButton">
         <attr name="login_id_type" format="string"/>

@@ -54,6 +54,19 @@
                 app:layout_constraintStart_toEndOf="@id/tv_international_number"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivbtn_clear_text"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toEndOf="@id/et_phone"
+                app:layout_constraintTop_toTopOf="@id/et_phone"
+                app:layout_constraintBottom_toBottomOf="@id/et_phone"
+                android:src="@drawable/ic_delete"
+                android:layout_margin="4dp"
+                android:padding="12dp"
+                android:visibility="invisible"
+                app:layout_constraintDimensionRatio="1:1"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatButton

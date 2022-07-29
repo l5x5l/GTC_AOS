@@ -63,6 +63,7 @@
             app:hint_message="@string/hint_message_login_id"
             app:input_type="text"
             app:max_length="20"
+            app:use_default_delete_button="false"
             innerText="@{viewModel.loginId}"
             android:layout_marginTop="@dimen/interval_large"
             tools:layout_height="56dp"/>
@@ -78,6 +79,7 @@
             app:hint_message="@string/password"
             app:input_type="password"
             app:max_length="20"
+            app:use_default_delete_button="false"
             innerText="@{viewModel.password}"
             android:layout_marginTop="@dimen/interval_middle"
             android:layout_marginBottom="@dimen/interval_small"

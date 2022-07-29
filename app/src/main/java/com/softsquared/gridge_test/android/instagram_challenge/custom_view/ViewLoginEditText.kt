@@ -16,6 +16,7 @@ import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.Strin
 class ViewLoginEditText(context : Context, attrs : AttributeSet) : ConstraintLayout(context, attrs) {
     private val binding = ViewLoginEditTextBinding.inflate(LayoutInflater.from(context), this, true)
     private var errorMessage = ""
+    private var useDefaultDeleteButton = true
 
     init {
         context.theme.obtainStyledAttributes(attrs, R.styleable.loginEditText, 0, 0).apply {
@@ -27,6 +28,14 @@ class ViewLoginEditText(context : Context, attrs : AttributeSet) : ConstraintLay
 
             val maxLength = getInteger(R.styleable.loginEditText_max_length, 8)
             binding.etInput.filters = arrayOf(InputFilter.LengthFilter(maxLength))
+
+            useDefaultDeleteButton = getBoolean(R.styleable.loginEditText_use_default_delete_button, true)
+        }
+
+        binding.ivbtnClearText.setOnClickListener {
+            binding.stringWrapper?.let {
+                binding.etInput.setText("")
+            }
         }
     }
 
@@ -53,6 +62,11 @@ class ViewLoginEditText(context : Context, attrs : AttributeSet) : ConstraintLay
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun afterTextChanged(p0: Editable?) {
+                if (p0.toString().isNotEmpty() && useDefaultDeleteButton){
+                    binding.ivbtnClearText.visibility = View.VISIBLE
+                } else {
+                    binding.ivbtnClearText.visibility = View.GONE
+                }
                 callback()
             }
         })
