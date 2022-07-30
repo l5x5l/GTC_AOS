@@ -93,14 +93,14 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_next"
             android:layout_width="0dp"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="@dimen/button_height"
             app:layout_constraintStart_toStartOf="@id/guide_content_start"
             app:layout_constraintEnd_toEndOf="@id/guide_content_end"
             app:layout_constraintTop_toBottomOf="@id/view_sign_up_auth_code"
             android:enabled="@{viewModel.nextButtonState}"
             style="@style/login_button"
             android:layout_marginTop="@dimen/interval_large"
-            android:text="@string/login"/>
+            android:text="@string/next"/>
 
         <View
             android:id="@+id/line_bottom_separator"
