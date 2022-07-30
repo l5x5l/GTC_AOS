@@ -47,6 +47,7 @@
             app:layout_constraintTop_toBottomOf="@id/et_input"
             app:layout_constraintStart_toStartOf="@id/et_input"
             android:layout_marginTop="@dimen/interval_small"
+            android:textColor="@color/error_red"
             android:visibility="gone"
             tools:text="사용자 이름 test을(를) 사용할 수 없습니다"/>
 

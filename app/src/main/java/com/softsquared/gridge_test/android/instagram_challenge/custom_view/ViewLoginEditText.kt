@@ -16,6 +16,7 @@ import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.Strin
 class ViewLoginEditText(context : Context, attrs : AttributeSet) : ConstraintLayout(context, attrs) {
     private val binding = ViewLoginEditTextBinding.inflate(LayoutInflater.from(context), this, true)
     private var errorMessage = ""
+    private var isErrorMode = false
     private var useDefaultDeleteButton = true
 
     init {
@@ -80,17 +81,30 @@ class ViewLoginEditText(context : Context, attrs : AttributeSet) : ConstraintLay
         binding.etInput.hint = hintMessage
     }
 
+    fun clearText(){
+        binding.etInput.setText("")
+    }
+
     fun setEditTextEnable(isEnable : Boolean) {
         binding.etInput.isEnabled = isEnable
     }
 
     fun changeToErrorMode() {
-        if (errorMessage.isNotEmpty()){
-            binding.tvErrorMessage.visibility = View.VISIBLE
+        if (!isErrorMode) {
+            isErrorMode = true
+            if (errorMessage.isNotEmpty()){
+                binding.tvErrorMessage.text = errorMessage
+                binding.tvErrorMessage.visibility = View.VISIBLE
+            }
+            binding.etInput.setBackgroundResource(R.drawable.shape_login_edittext_error)
         }
     }
 
     fun changeToNormalMode() {
-        binding.tvErrorMessage.visibility = View.GONE
+        if (isErrorMode) {
+            isErrorMode = false
+            binding.tvErrorMessage.visibility = View.GONE
+            binding.etInput.setBackgroundResource(R.drawable.shape_login_edittext)
+        }
     }
 }
