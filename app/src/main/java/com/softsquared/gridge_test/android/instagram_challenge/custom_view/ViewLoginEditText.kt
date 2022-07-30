@@ -107,4 +107,12 @@ class ViewLoginEditText(context : Context, attrs : AttributeSet) : ConstraintLay
             binding.etInput.setBackgroundResource(R.drawable.shape_login_edittext)
         }
     }
+
+    fun setEdittextKeyListener(listener : OnKeyListener) {
+        binding.etInput.setOnKeyListener(listener)
+    }
+
+    fun setFocus(){
+        binding.etInput.requestFocus()
+    }
 }

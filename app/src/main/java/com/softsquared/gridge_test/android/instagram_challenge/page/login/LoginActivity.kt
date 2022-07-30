@@ -3,6 +3,8 @@ package com.softsquared.gridge_test.android.instagram_challenge.page.login
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
+import android.view.View
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
@@ -49,10 +51,36 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                                 }
                             )
                         }
+                    } // loginResult.collect
+                } // launch
+            } // repeatOnLifecycle
+        } // lifecycleScope
+
+        binding.viewLoginEdittextId.setEdittextKeyListener(listener = object : View.OnKeyListener {
+            override fun onKey(view: View?, keyCode: Int, keyEvent: KeyEvent?): Boolean {
+                if (keyEvent?.action == KeyEvent.ACTION_DOWN) { return false }
+
+                when (keyCode) {
+                    KeyEvent.KEYCODE_ENTER -> {
+                        binding.viewLoginEdittextPassword.setFocus()
                     }
                 }
+                return true
             }
-        }
+        })
+
+        binding.viewLoginEdittextPassword.setEdittextKeyListener(listener = object : View.OnKeyListener {
+            override fun onKey(view: View?, keyCode: Int, keyEvent: KeyEvent?): Boolean {
+                if (keyEvent?.action == KeyEvent.ACTION_DOWN) { return false }
+
+                when (keyCode) {
+                    KeyEvent.KEYCODE_ENTER -> {
+                        binding.btnLogin.performClick()
+                    }
+                }
+                return true
+            }
+        })
 
         setButton()
     }
