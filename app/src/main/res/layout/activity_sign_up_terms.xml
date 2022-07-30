@@ -2,6 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.terms.SignUpTermsViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -44,6 +50,145 @@
             android:text="@string/description_agree_to_terms"
             android:gravity="center"/>
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_agree_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_description_agree_to_terms"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            android:text="@string/agree_all"
+            android:layout_marginTop="@dimen/interval_extreme"/>
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/cb_agree_all"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:checked="@{viewModel.agreeAll}"
+            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            app:layout_constraintTop_toTopOf="@id/tv_agree_all"
+            app:layout_constraintBottom_toBottomOf="@id/tv_agree_all"/>
+
+        <View
+            android:id="@+id/line_middle_separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray50"
+            app:layout_constraintTop_toBottomOf="@id/tv_agree_all"
+            android:layout_marginTop="@dimen/interval_middle"/>
+
+        <!-- 이용 약관 부분 -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_terms_of_use"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/line_middle_separator"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            android:text="@string/terms_of_use"
+            android:layout_marginTop="@dimen/interval_small"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/tv_terms_of_use"
+            app:layout_constraintBottom_toBottomOf="@id/tv_terms_of_use"
+            app:layout_constraintStart_toEndOf="@id/tv_terms_of_use"
+            android:text="@string/essential"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvbtn_see_more_terms_of_use"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintTop_toBottomOf="@id/tv_terms_of_use"
+            android:text="@string/see_more"
+            style="@style/text_caption"
+            android:textColor="@color/deep_blue"/>
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/cb_terms_of_use"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:checked="@{viewModel.agreeTermsOfUse}"
+            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            app:layout_constraintTop_toTopOf="@id/tv_terms_of_use"
+            app:layout_constraintBottom_toBottomOf="@id/tvbtn_see_more_terms_of_use"/>
+
+        <!-- 데이터 정책 부분 -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_data_policy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvbtn_see_more_terms_of_use"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            android:text="@string/data_policy"
+            android:layout_marginTop="@dimen/interval_large"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/tv_data_policy"
+            app:layout_constraintBottom_toBottomOf="@id/tv_data_policy"
+            app:layout_constraintStart_toEndOf="@id/tv_data_policy"
+            android:text="@string/essential"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvbtn_see_more_data_policy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintTop_toBottomOf="@id/tv_data_policy"
+            android:text="@string/see_more"
+            style="@style/text_caption"
+            android:textColor="@color/deep_blue"/>
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/cb_data_policy"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:checked="@{viewModel.agreeDataPolicy}"
+            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            app:layout_constraintTop_toTopOf="@id/tv_data_policy"
+            app:layout_constraintBottom_toBottomOf="@id/tvbtn_see_more_data_policy"/>
+
+        <!-- 위치 기반 기능 부분 -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_location_based_function"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvbtn_see_more_data_policy"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            android:text="@string/location_based_function"
+            android:layout_marginTop="@dimen/interval_large"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/tv_location_based_function"
+            app:layout_constraintBottom_toBottomOf="@id/tv_location_based_function"
+            app:layout_constraintStart_toEndOf="@id/tv_location_based_function"
+            android:text="@string/essential"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvbtn_see_more_location_based_function"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintTop_toBottomOf="@id/tv_location_based_function"
+            android:text="@string/see_more"
+            style="@style/text_caption"
+            android:textColor="@color/deep_blue"/>
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/cb_location_based_function"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:checked="@{viewModel.agreeLocationBasedFunction}"
+            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            app:layout_constraintTop_toTopOf="@id/tv_location_based_function"
+            app:layout_constraintBottom_toBottomOf="@id/tvbtn_see_more_location_based_function"/>
+
+
+        <!-- bottom area 부분 -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -61,6 +206,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="@dimen/interval_middle"
             style="@style/login_button"
+            android:enabled="@{viewModel.agreeAll}"
             android:text="@string/next"/>
 
 

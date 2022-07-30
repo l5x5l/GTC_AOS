@@ -17,12 +17,18 @@
     <string name="auth_code">인증 코드</string>
     <string name="add_birthday">생일 추가</string>
     <string name="user_name">사용자 이름</string>
+    <string name="essential">(필수)</string>
 
     <string name="try_again">다시 시도</string>
     <string name="do_sign_up">가입하기</string>
     <string name="move_back">돌아가기</string>
     <string name="create_password">비밀번호 만들기</string>
     <string name="agree_to_terms">약관 동의</string>
+    <string name="agree_all">모두 동의</string>
+    <string name="see_more">더 알아보기</string>
+    <string name="terms_of_use">이용 약관</string>
+    <string name="data_policy">데이터 정책</string>
+    <string name="location_based_function">위치 기반 기능</string>
 
     <string name="create_user_name">사용자 이름 만들기</string>
 
