@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.birthday.SignUpBirthdayViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -97,6 +103,7 @@
                 android:focusable="false"/>
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="7세"/>
@@ -133,6 +140,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_margin="@dimen/interval_middle"
+            android:enabled="@{viewModel.nextButtonState}"
             style="@style/login_button"
             android:text="@string/next"/>
 
