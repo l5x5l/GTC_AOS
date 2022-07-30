@@ -7,6 +7,7 @@ import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface UserRetrofitInterface {
     @GET("app/auto-sign-in")
@@ -14,4 +15,7 @@ interface UserRetrofitInterface {
 
     @POST("app/sign-in")
     suspend fun postSignIn(@Body params : RequestUserSignIn) : Response<BaseApiResponse<ResponseUserSignIn>>
+
+    @GET("app/check-duplicate-login-id")
+    suspend fun getCheckDuplicateLoginId(@Query("loginId") loginId : String) : Response<BaseApiResponse<Nothing>>
 }

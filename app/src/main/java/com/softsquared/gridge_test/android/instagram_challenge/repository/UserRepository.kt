@@ -37,4 +37,12 @@ class UserRepository {
         throw HttpException(result)
     }
 
+    suspend fun getDuplicateCheckLoginId(loginId : String) : BaseApiResponse<Nothing> {
+        val result = retrofitImpl.getCheckDuplicateLoginId(loginId = loginId)
+        if (result.isSuccessful) {
+            return result.body()!!
+        }
+        throw HttpException(result)
+    }
+
 }
