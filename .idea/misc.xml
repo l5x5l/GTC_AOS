@@ -3,14 +3,36 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_cake.xml" value="0.119" />
+        <entry key="app/src/main/res/drawable/ic_eye_deactivate.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/img_meta_logo.xml" value="0.2025" />
         <entry key="app/src/main/res/drawable/selector_edittext_login.xml" value="0.333" />
+        <entry key="app/src/main/res/drawable/selector_login_button.xml" value="0.1345" />
+        <entry key="app/src/main/res/drawable/shape_birthday_edittext_area.xml" value="0.1355" />
+        <entry key="app/src/main/res/drawable/shape_kakao_login_buton.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/shape_login_button_able.xml" value="0.1345" />
+        <entry key="app/src/main/res/drawable/shape_login_edit_text_cursor.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/shape_login_edittext.xml" value="0.1095" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.11" />
+        <entry key="app/src/main/res/drawable/shape_login_edittext_error.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13177083333333334" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_sign_up_auth_code.xml" value="0.11" />
+        <entry key="app/src/main/res/layout/activity_sign_up_birthday.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/activity_sign_up_confirmation.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_sign_up_id.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_sign_up_name.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_sign_up_password.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_sign_up_phone_number.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/activity_sign_up_terms.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_sign_up_user_name.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_start.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_sign_up_id_email.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/fragment_sign_up_id_phone.xml" value="0.25" />
         <entry key="app/src/main/res/layout/view_edittext_login.xml" value="0.22447916666666667" />
-        <entry key="app/src/main/res/layout/view_login_edit_text.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/view_login_botton_area.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/view_login_edit_text.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/view_login_id_select_button.xml" value="0.25" />
         <entry key="app/src/main/res/layout/view_test_edittext.xml" value="0.21693840579710144" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.333" />
       </map>
