@@ -38,9 +38,9 @@ abstract class BaseActivity<B : ViewBinding> (@LayoutRes val layoutRes : Int) : 
                 launch {
                     viewModel?.isShowLoadingDialog?.collect { showDialog ->
                         if (showDialog) {
-                            loadingDialog.show()
+                            showLoadingDialog()
                         } else {
-                            loadingDialog.dismiss()
+                            dismissLoadingDialog()
                         }
                     }
                 }
@@ -88,5 +88,13 @@ abstract class BaseActivity<B : ViewBinding> (@LayoutRes val layoutRes : Int) : 
                 negativeCallback()
         }
         builder.create().show()
+    }
+
+    fun showLoadingDialog(){
+        loadingDialog.show()
+    }
+
+    fun dismissLoadingDialog(){
+        loadingDialog.dismiss()
     }
 }
