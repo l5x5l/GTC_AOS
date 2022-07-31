@@ -16,7 +16,7 @@ import com.softsquared.gridge_test.android.instagram_challenge.utils.checkUserNa
 import kotlinx.coroutines.launch
 
 class SignUpUserNameActivity : BaseActivity<ActivitySignUpUserNameBinding>(R.layout.activity_sign_up_user_name) {
-    private val viewModel : SignUpUserNameViewModel by lazy { ViewModelProvider(this)[SignUpUserNameViewModel::class.java] }
+    override val viewModel : SignUpUserNameViewModel by lazy { ViewModelProvider(this)[SignUpUserNameViewModel::class.java] }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

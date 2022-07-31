@@ -11,7 +11,7 @@ import com.softsquared.gridge_test.android.instagram_challenge.databinding.Activ
 import com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.user_name.SignUpUserNameActivity
 
 class SignUpTermsActivity : BaseActivity<ActivitySignUpTermsBinding>(R.layout.activity_sign_up_terms) {
-    private val viewModel : SignUpTermsViewModel by lazy { ViewModelProvider(this)[SignUpTermsViewModel::class.java] }
+    override val viewModel : SignUpTermsViewModel by lazy { ViewModelProvider(this)[SignUpTermsViewModel::class.java] }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

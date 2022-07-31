@@ -10,7 +10,7 @@ import com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.pass
 
 class SignUpNameActivity : BaseActivity<ActivitySignUpNameBinding>(R.layout.activity_sign_up_name) {
 
-    private val viewModel : SignUpNameViewModel by lazy { ViewModelProvider(this)[SignUpNameViewModel::class.java] }
+    override val viewModel : SignUpNameViewModel by lazy { ViewModelProvider(this)[SignUpNameViewModel::class.java] }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

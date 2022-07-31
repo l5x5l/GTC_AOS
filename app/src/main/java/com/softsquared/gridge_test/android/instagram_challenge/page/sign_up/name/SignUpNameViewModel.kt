@@ -1,12 +1,12 @@
 package com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.name
 
-import androidx.lifecycle.ViewModel
+import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseViewModel
 import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.SignUpData
 import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.StringWrapper
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-class SignUpNameViewModel : ViewModel() {
+class SignUpNameViewModel : BaseViewModel() {
     val name = StringWrapper("")
 
     private val _nextButtonState = MutableStateFlow(false)

@@ -11,11 +11,20 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewbinding.ViewBinding
 import com.softsquared.gridge_test.android.instagram_challenge.R
+import com.softsquared.gridge_test.android.instagram_challenge.custom_view.ViewLoadingDialog
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 abstract class BaseActivity<B : ViewBinding> (@LayoutRes val layoutRes : Int) : AppCompatActivity() {
     protected lateinit var binding : B
+    protected abstract val viewModel : BaseViewModel?
+
+    private val loadingDialog : ViewLoadingDialog by lazy { ViewLoadingDialog(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +32,25 @@ abstract class BaseActivity<B : ViewBinding> (@LayoutRes val layoutRes : Int) : 
         preLoad()
 
         binding = DataBindingUtil.setContentView(this, layoutRes)
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                launch {
+                    viewModel?.isShowLoadingDialog?.collect { showDialog ->
+                        if (showDialog) {
+                            showLoadingDialog()
+                        } else {
+                            dismissLoadingDialog()
+                        }
+                    }
+                }
+                launch {
+                    viewModel?.networkErrorMessage?.collect { errorMessage ->
+                        showSimpleToastMessage(errorMessage)
+                    }
+                }
+            } // repeatOnLifecycle
+        } // lifecycleScope.launch
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
@@ -60,5 +88,13 @@ abstract class BaseActivity<B : ViewBinding> (@LayoutRes val layoutRes : Int) : 
                 negativeCallback()
         }
         builder.create().show()
+    }
+
+    fun showLoadingDialog(){
+        loadingDialog.show()
+    }
+
+    fun dismissLoadingDialog(){
+        loadingDialog.dismiss()
     }
 }

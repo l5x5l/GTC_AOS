@@ -13,7 +13,7 @@ import com.softsquared.gridge_test.android.instagram_challenge.utils.calcKoreanA
 import java.util.*
 
 class SignUpBirthdayActivity : BaseActivity<ActivitySignUpBirthdayBinding>(R.layout.activity_sign_up_birthday) {
-    private val viewModel : SignUpBirthdayViewModel by lazy { ViewModelProvider(this)[SignUpBirthdayViewModel::class.java] }
+    override val viewModel : SignUpBirthdayViewModel by lazy { ViewModelProvider(this)[SignUpBirthdayViewModel::class.java] }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

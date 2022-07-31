@@ -1,7 +1,7 @@
 package com.softsquared.gridge_test.android.instagram_challenge.page.login
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseViewModel
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.GlobalApplication
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.MutableEventFlow
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.asEventFlow
@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class LoginViewModel : ViewModel() {
+class LoginViewModel : BaseViewModel() {
     val loginId = StringWrapper("")
     val password = StringWrapper("")
 
@@ -27,7 +27,9 @@ class LoginViewModel : ViewModel() {
     val loginResult = _loginResult.asEventFlow()
 
     private suspend fun tryLogin() {
+        startLoadingDialogDebounce()
         val response = repository.postLogin(loginId = loginId.value, password = password.value)
+        setLoadingDialogState(false)
         if (response.code == 1000) {
             response.result?.let {
                 GlobalApplication.saveJwtToken(it.jwt)

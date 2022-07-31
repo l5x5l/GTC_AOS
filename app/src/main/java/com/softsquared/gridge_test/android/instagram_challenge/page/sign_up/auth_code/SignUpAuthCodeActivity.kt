@@ -11,7 +11,7 @@ import com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.pass
 
 class SignUpAuthCodeActivity : BaseActivity<ActivitySignUpAuthCodeBinding>(R.layout.activity_sign_up_auth_code) {
 
-    private val viewModel : SignUpAuthCodeViewModel by lazy { ViewModelProvider(this)[SignUpAuthCodeViewModel::class.java] }
+    override val viewModel : SignUpAuthCodeViewModel by lazy { ViewModelProvider(this)[SignUpAuthCodeViewModel::class.java] }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

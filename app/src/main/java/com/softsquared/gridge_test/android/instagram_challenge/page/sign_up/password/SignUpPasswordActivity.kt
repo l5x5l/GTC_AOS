@@ -10,7 +10,7 @@ import com.softsquared.gridge_test.android.instagram_challenge.databinding.Activ
 import com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.birthday.SignUpBirthdayActivity
 
 class SignUpPasswordActivity : BaseActivity<ActivitySignUpPasswordBinding>(R.layout.activity_sign_up_password) {
-    private val viewModel : SignUpPasswordViewModel by lazy { ViewModelProvider(this)[SignUpPasswordViewModel::class.java] }
+    override val viewModel : SignUpPasswordViewModel by lazy { ViewModelProvider(this)[SignUpPasswordViewModel::class.java] }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

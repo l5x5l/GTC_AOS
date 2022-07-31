@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 
 class StartActivity : BaseActivity<ActivityStartBinding>(R.layout.activity_start) {
 
-    private val viewModel : StartViewModel by lazy { ViewModelProvider(this)[StartViewModel::class.java] }
+    override val viewModel : StartViewModel by lazy { ViewModelProvider(this)[StartViewModel::class.java] }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
