@@ -3,14 +3,12 @@ package com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.bir
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
-import android.widget.DatePicker
 import androidx.lifecycle.ViewModelProvider
 import com.softsquared.gridge_test.android.instagram_challenge.R
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseActivity
 import com.softsquared.gridge_test.android.instagram_challenge.databinding.ActivitySignUpBirthdayBinding
 import com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.terms.SignUpTermsActivity
 import com.softsquared.gridge_test.android.instagram_challenge.utils.calcKoreanAge
-import java.util.*
 
 class SignUpBirthdayActivity : BaseActivity<ActivitySignUpBirthdayBinding>(R.layout.activity_sign_up_birthday) {
     override val viewModel : SignUpBirthdayViewModel by lazy { ViewModelProvider(this)[SignUpBirthdayViewModel::class.java] }
@@ -44,7 +42,7 @@ class SignUpBirthdayActivity : BaseActivity<ActivitySignUpBirthdayBinding>(R.lay
     }
 
     private fun setBirthDayText(){
-        binding.etBirthday.hint = getString(R.string.format_birthday, viewModel.year, viewModel.month, viewModel.day)
+        binding.etBirthday.hint = getString(R.string.format_birthday, viewModel.year, viewModel.month + 1, viewModel.day)
     }
 
     private fun setAgeText(){
