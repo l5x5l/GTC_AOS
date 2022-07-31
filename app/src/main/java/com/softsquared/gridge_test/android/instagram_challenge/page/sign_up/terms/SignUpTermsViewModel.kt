@@ -1,6 +1,5 @@
 package com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.terms
 
-import androidx.lifecycle.ViewModel
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseViewModel
 import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.TermType
 import kotlinx.coroutines.flow.MutableStateFlow

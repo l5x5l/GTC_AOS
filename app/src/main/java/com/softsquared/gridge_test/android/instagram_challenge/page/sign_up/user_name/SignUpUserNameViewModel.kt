@@ -1,6 +1,5 @@
 package com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.user_name
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseViewModel
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.MutableEventFlow

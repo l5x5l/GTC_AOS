@@ -10,7 +10,6 @@ import com.softsquared.gridge_test.android.instagram_challenge.repository.UserRe
 import com.softsquared.gridge_test.android.instagram_challenge.utils.checkIdRegex
 import com.softsquared.gridge_test.android.instagram_challenge.utils.checkPasswordRegex
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
