@@ -4,12 +4,14 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.softsquared.gridge_test.android.instagram_challenge.R
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseActivity
+import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseViewModel
 import com.softsquared.gridge_test.android.instagram_challenge.databinding.ActivitySignUpIdBinding
 import com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.id.email.SignUpIdEmailFragment
 import com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.id.phone_number.SignUpIdPhoneFragment
 
 class SignUpIdActivity : BaseActivity<ActivitySignUpIdBinding>(R.layout.activity_sign_up_id) {
 
+    override val viewModel: BaseViewModel? = null
     private val phoneFragment : SignUpIdPhoneFragment by lazy { SignUpIdPhoneFragment() }
     private val emailFragment : SignUpIdEmailFragment by lazy { SignUpIdEmailFragment() }
 

@@ -1,12 +1,13 @@
 package com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.auth_code
 
 import androidx.lifecycle.ViewModel
+import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseViewModel
 import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.SignUpData
 import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.StringWrapper
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-class SignUpAuthCodeViewModel : ViewModel() {
+class SignUpAuthCodeViewModel : BaseViewModel() {
     var phoneNumber = SignUpData.getInstance().phoneNumber
     var internationalNumber = SignUpData.getInstance().international_number
 

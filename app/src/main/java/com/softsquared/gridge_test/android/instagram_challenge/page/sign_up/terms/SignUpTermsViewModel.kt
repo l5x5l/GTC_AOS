@@ -1,11 +1,12 @@
 package com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.terms
 
 import androidx.lifecycle.ViewModel
+import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseViewModel
 import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.TermType
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-class SignUpTermsViewModel : ViewModel() {
+class SignUpTermsViewModel : BaseViewModel() {
     // 해당 페이지만 예외로, nextButtonState 가 agreeAll 과 같이 사용됩니다
     private val _agreeAll = MutableStateFlow(false)
     val agreeAll = _agreeAll.asStateFlow()

@@ -8,7 +8,7 @@ import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.SignU
 import com.softsquared.gridge_test.android.instagram_challenge.databinding.ActivitySignUpConfirmationBinding
 
 class SignUpConfirmationActivity : BaseActivity<ActivitySignUpConfirmationBinding>(R.layout.activity_sign_up_confirmation){
-    private val viewModel : SignUpConfirmationViewModel by lazy { ViewModelProvider(this)[SignUpConfirmationViewModel::class.java] }
+    override val viewModel : SignUpConfirmationViewModel by lazy { ViewModelProvider(this)[SignUpConfirmationViewModel::class.java] }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

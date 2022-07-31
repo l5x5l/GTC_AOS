@@ -1,13 +1,14 @@
 package com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.birthday
 
 import androidx.lifecycle.ViewModel
+import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseViewModel
 import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.SignUpData
 import com.softsquared.gridge_test.android.instagram_challenge.utils.checkAvailableDate
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import java.util.*
 
-class SignUpBirthdayViewModel : ViewModel() {
+class SignUpBirthdayViewModel : BaseViewModel() {
 
     private val calendar = Calendar.getInstance()
     var year = calendar.get(Calendar.YEAR)

@@ -12,7 +12,7 @@ import com.softsquared.gridge_test.android.instagram_challenge.databinding.Fragm
 import com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.auth_code.SignUpAuthCodeActivity
 
 class SignUpIdPhoneFragment : BaseFragment<FragmentSignUpIdPhoneBinding>(FragmentSignUpIdPhoneBinding::bind, R.layout.fragment_sign_up_id_phone) {
-    private val viewModel : SignUpIdPhoneViewModel by lazy { ViewModelProvider(this)[SignUpIdPhoneViewModel::class.java] }
+    override val viewModel : SignUpIdPhoneViewModel by lazy { ViewModelProvider(this)[SignUpIdPhoneViewModel::class.java] }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

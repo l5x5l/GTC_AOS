@@ -30,6 +30,7 @@
         <entry key="app/src/main/res/layout/fragment_sign_up_id_email.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_sign_up_id_phone.xml" value="0.25" />
         <entry key="app/src/main/res/layout/view_edittext_login.xml" value="0.22447916666666667" />
+        <entry key="app/src/main/res/layout/view_loading_dialog.xml" value="0.12037037037037036" />
         <entry key="app/src/main/res/layout/view_login_botton_area.xml" value="0.33" />
         <entry key="app/src/main/res/layout/view_login_edit_text.xml" value="0.22" />
         <entry key="app/src/main/res/layout/view_login_id_select_button.xml" value="0.25" />

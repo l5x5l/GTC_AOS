@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
 
-    private val viewModel : LoginViewModel by lazy { ViewModelProvider(this)[LoginViewModel::class.java] }
+    override val viewModel : LoginViewModel by lazy { ViewModelProvider(this)[LoginViewModel::class.java] }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

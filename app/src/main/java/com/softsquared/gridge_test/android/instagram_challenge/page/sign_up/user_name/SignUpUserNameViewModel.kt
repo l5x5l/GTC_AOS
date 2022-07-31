@@ -2,6 +2,7 @@ package com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.use
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseViewModel
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.MutableEventFlow
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.asEventFlow
 import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.SignUpData
@@ -10,7 +11,7 @@ import com.softsquared.gridge_test.android.instagram_challenge.repository.UserRe
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class SignUpUserNameViewModel : ViewModel() {
+class SignUpUserNameViewModel : BaseViewModel() {
 
     private val repository = UserRepository()
 
@@ -26,7 +27,9 @@ class SignUpUserNameViewModel : ViewModel() {
 
     fun tryCheckDuplicateLoginId() {
         viewModelScope.launch(Dispatchers.IO) {
+            startLoadingDialogDebounce(500L)
             val result = repository.getDuplicateCheckLoginId(userName.value)
+            setLoadingDialogState(false)
             _checkDuplicateLoginIdResult.emit(result.code)
         }
 

@@ -12,6 +12,7 @@ import androidx.viewbinding.ViewBinding
 abstract class BaseFragment<B : ViewBinding> (private val bind : (View) -> B, @LayoutRes private val layoutResId : Int) : Fragment() {
     private var _binding : B ?= null
     protected val binding get() = _binding!!
+    protected abstract val viewModel : BaseViewModel?
 
     override fun onCreateView(
         inflater: LayoutInflater,
