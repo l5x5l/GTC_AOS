@@ -41,6 +41,7 @@
     <string name="not_include_open_profile">공개 프로필에 포함되지 않습니다.</string>
     <string name="message_not_match_to_user_name_format">아이디는 영어,숫자,\'_\',\'.\'만 사용 가능합니다.</string>
     <string name="message_duplicate_user_name">사용자 이름 %s을(를) 사용할 수 없습니다.</string>
+    <string name="message_expire_jwt_token">토큰 만료, 재로그인이 필요합니다.</string>
 
     <string name="format_birthday">%d년 %d월 %d일</string>
     <string name="format_age">%d세</string>
