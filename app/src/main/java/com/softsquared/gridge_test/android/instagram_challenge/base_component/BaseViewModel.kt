@@ -47,6 +47,7 @@ open class BaseViewModel : ViewModel() {
     }
 
     fun setLoadingDialogState(isShow : Boolean) {
+        stopLoadingDialogDebounce()
         _isShowLoadingDialog.value = isShow
     }
 
