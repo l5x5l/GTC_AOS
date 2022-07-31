@@ -2,7 +2,6 @@ package com.softsquared.gridge_test.android.instagram_challenge.page.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import androidx.appcompat.widget.AppCompatImageView
@@ -12,7 +11,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.softsquared.gridge_test.android.instagram_challenge.R
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseActivity
+import com.softsquared.gridge_test.android.instagram_challenge.base_component.GlobalApplication
 import com.softsquared.gridge_test.android.instagram_challenge.databinding.ActivityLoginBinding
+import com.softsquared.gridge_test.android.instagram_challenge.page.main.MainActivity
 import com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.base.SignUpActivity
 import kotlinx.coroutines.launch
 
@@ -36,7 +37,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                 launch {
                     viewModel.loginResult.collect{ isSuccess ->
                         if (isSuccess) {
-                            Log.d("!!!!", "success")
+                            val intent = Intent(baseContext, MainActivity::class.java)
+                            startActivity(intent)
+                            finish()
                         } else {
                             create2ButtonDialog(
                                 title = getString(R.string.message_cannot_found_account),
@@ -44,11 +47,10 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                                 positiveWord = getString(R.string.do_sign_up), negativeWord = getString(R.string.try_again),
                                 positiveCallback = {
                                     val intent = Intent(baseContext, SignUpActivity::class.java)
+                                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                                     startActivity(intent)
                                 },
-                                negativeCallback = {
-                                    Log.d("!!!!", "click positive")
-                                }
+                                negativeCallback = {  }
                             )
                         }
                     } // loginResult.collect
@@ -83,6 +85,16 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
         })
 
         setButton()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+
+        if (GlobalApplication.hasJwtToken()) {
+            val intent = Intent(baseContext, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     override fun setButton() {
