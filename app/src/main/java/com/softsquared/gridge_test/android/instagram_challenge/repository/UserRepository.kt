@@ -4,6 +4,8 @@ import com.softsquared.gridge_test.android.instagram_challenge.base_component.Ba
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.GlobalApplication
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.request.RequestUserSignIn
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.response.ResponseUserSignIn
+import com.softsquared.gridge_test.android.instagram_challenge.data.api.response.ResponseUserSignUp
+import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.SignUpData
 import com.softsquared.gridge_test.android.instagram_challenge.retrofit_interface.UserRetrofitInterface
 import retrofit2.HttpException
 
@@ -40,6 +42,14 @@ class UserRepository {
     suspend fun getDuplicateCheckLoginId(loginId : String) : BaseApiResponse<Nothing> {
         val result = retrofitImpl.getCheckDuplicateLoginId(loginId = loginId)
         if (result.isSuccessful) {
+            return result.body()!!
+        }
+        throw HttpException(result)
+    }
+
+    suspend fun postSignUp(signUpData : SignUpData) : BaseApiResponse<ResponseUserSignUp> {
+        val result = retrofitImpl.postSignUp(params = signUpData.toRequestUserSignUp())
+        if (result.isSuccessful){
             return result.body()!!
         }
         throw HttpException(result)

@@ -2,7 +2,9 @@ package com.softsquared.gridge_test.android.instagram_challenge.retrofit_interfa
 
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseApiResponse
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.request.RequestUserSignIn
+import com.softsquared.gridge_test.android.instagram_challenge.data.api.request.RequestUserSignUp
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.response.ResponseUserSignIn
+import com.softsquared.gridge_test.android.instagram_challenge.data.api.response.ResponseUserSignUp
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -18,4 +20,7 @@ interface UserRetrofitInterface {
 
     @GET("app/check-duplicate-login-id")
     suspend fun getCheckDuplicateLoginId(@Query("loginId") loginId : String) : Response<BaseApiResponse<Nothing>>
+
+    @POST("app/sign-up")
+    suspend fun postSignUp(@Body params : RequestUserSignUp) : Response<BaseApiResponse<ResponseUserSignUp>>
 }
