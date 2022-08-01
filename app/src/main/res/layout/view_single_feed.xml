@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="feedData"
+            type="com.softsquared.gridge_test.android.instagram_challenge.data.in_app.FeedData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_content_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/interval_middle"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_content_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/interval_middle" />
+
+        <View
+            android:id="@+id/line_top"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray100"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_user_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line_top"
+            android:paddingHorizontal="@dimen/interval_middle"
+            android:paddingVertical="@dimen/interval_small">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_profile"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_profile_fill"
+                    android:tint="@color/gray600"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_login_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/cv_profile"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="@dimen/interval_small"
+                android:text="@{feedData.loginId}"
+                tools:text="prove"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivbtn_more"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="4dp"
+                android:src="@drawable/ic_baseline_more_horiz_24"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp2_images"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_user_info"
+            app:layout_constraintDimensionRatio="1:1"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_image_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/vp2_images"
+            app:layout_constraintTop_toTopOf="@id/vp2_images"
+            android:background="@drawable/shape_textview_image_count"
+            android:textColor="@color/white"
+            tools:text="1/6"
+            android:paddingVertical="6dp"
+            android:paddingHorizontal="12dp"
+            android:layout_margin="@dimen/interval_middle"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivbtn_comment"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vp2_images"
+            android:layout_marginStart="@dimen/interval_small"
+            android:layout_marginTop="@dimen/interval_small"
+            android:src="@drawable/ic_like_stroke"
+            android:padding="10dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivbtn_show_all_comment"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            app:layout_constraintStart_toEndOf="@id/ivbtn_comment"
+            app:layout_constraintTop_toTopOf="@id/ivbtn_comment"
+            android:src="@drawable/ic_comment"
+            android:padding="10dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivbtn_add_comment"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            app:layout_constraintStart_toEndOf="@id/ivbtn_show_all_comment"
+            app:layout_constraintTop_toTopOf="@id/ivbtn_comment"
+            android:src="@drawable/ic_message"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivbtn_save"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivbtn_comment"
+            android:layout_marginEnd="@dimen/interval_small"
+            android:src="@drawable/ic_save"
+            android:padding="10dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_like_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintTop_toBottomOf="@id/ivbtn_comment"
+            android:text="@{@string/format_like_count(feedData.commentCount)}"
+            tools:text="좋아요 3,432개"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_feed_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            app:layout_constraintTop_toBottomOf="@id/tv_like_count"
+            android:text="@{@string/format_loginid_and_content(feedData.loginId, feedData.text)}"
+            tools:text="alwlrma"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvbtn_show_all_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintTop_toBottomOf="@id/tv_feed_content"
+            android:text="@{@string/format_show_all_comment(feedData.commentCount)}"
+            tools:text="댓글 30개 모두보기"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivbtn_like"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:layout_constraintTop_toBottomOf="@id/tvbtn_show_all_comment"
+            app:layout_constraintEnd_toEndOf="@id/guide_content_end"
+            android:src="@drawable/ic_like_stroke"
+            android:padding="16dp"/>
+
+        <LinearLayout
+            android:id="@+id/layout_comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivbtn_like"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_profile_fill"
+                android:tint="@color/gray250"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/add_comment"/>
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guide_content_start"
+            app:layout_constraintTop_toBottomOf="@id/layout_comment"
+            tools:text="4일 전"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
