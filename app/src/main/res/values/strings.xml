@@ -54,7 +54,12 @@
     <string name="format_like_count">좋아요 %,2d</string>
     <string name="format_show_all_comment">댓글 %,2d개 모두 보기</string>
     <string name="format_count">%d/%d</string>
-    <string name="format_loginid_and_content"><b>%s</b>%s</string>
+    <string name="format_loginid_and_content"><b>%s</b> %s</string>
+    <string name="format_before_second">%d초 전</string>
+    <string name="format_before_minute">%d분 전</string>
+    <string name="format_before_hour">%d시간 전</string>
+    <string name="format_before_day">%d일 전</string>
+    <string name="format_date">%d월 %d일</string>
 
     <string name="description_input_number">보안 및 로그인 목적으로 Instagram에서 보내는\nSMS 알림을 수신할 수 있습니다.</string>
     <string name="description_cannot_founc_account">

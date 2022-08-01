@@ -142,6 +142,15 @@
             android:paddingTop="8dp"
             android:paddingBottom="4dp"/>
 
+        <com.softsquared.gridge_test.android.instagram_challenge.custom_view.ViewPageCountDot
+            android:id="@+id/view_count_dot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivbtn_comment"
+            app:layout_constraintBottom_toBottomOf="@id/ivbtn_comment"/>
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivbtn_save"
             android:layout_width="@dimen/button_size"
@@ -165,6 +174,7 @@
             android:id="@+id/tv_feed_content"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/interval_small"
             app:layout_constraintStart_toStartOf="@id/guide_content_start"
             app:layout_constraintEnd_toEndOf="@id/guide_content_end"
             app:layout_constraintTop_toBottomOf="@id/tv_like_count"
@@ -175,6 +185,7 @@
             android:id="@+id/tvbtn_show_all_comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/interval_small"
             app:layout_constraintStart_toStartOf="@id/guide_content_start"
             app:layout_constraintTop_toBottomOf="@id/tv_feed_content"
             android:text="@{@string/format_show_all_comment(feedData.commentCount)}"
@@ -216,11 +227,13 @@
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_created_at"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/guide_content_start"
             app:layout_constraintTop_toBottomOf="@id/layout_comment"
-            tools:text="4일 전"/>
+            tools:text="4일 전"
+            android:paddingBottom="@dimen/interval_large"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -7,6 +7,7 @@ import com.softsquared.gridge_test.android.instagram_challenge.R
 import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.FeedData
 import com.softsquared.gridge_test.android.instagram_challenge.databinding.ViewSingleFeedBinding
 import com.softsquared.gridge_test.android.instagram_challenge.recycler.adapter.SingleImageAdapter
+import com.softsquared.gridge_test.android.instagram_challenge.utils.getTimeDiffFromCurrent
 
 class FeedViewHolder(private val binding : ViewSingleFeedBinding) : RecyclerView.ViewHolder(binding.root) {
     init {
@@ -15,6 +16,7 @@ class FeedViewHolder(private val binding : ViewSingleFeedBinding) : RecyclerView
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 binding.tvImageCount.text = binding.root.context.getString(R.string.format_count, (position + 1), binding.feedData?.imageList?.size ?: 1)
+                binding.viewCountDot.changeItem(position)
             }
         })
     }
@@ -28,5 +30,8 @@ class FeedViewHolder(private val binding : ViewSingleFeedBinding) : RecyclerView
         } else {
             binding.tvImageCount.visibility = View.GONE
         }
-    }
+        binding.tvCreatedAt.text = getTimeDiffFromCurrent(feedData.createAt, binding.root.context)
+        binding.viewCountDot.clearAllChild()
+        binding.viewCountDot.applyItemCount(feedData.imageList.size)
+     }
 }
