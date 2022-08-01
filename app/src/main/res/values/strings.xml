@@ -4,6 +4,12 @@
     <string name="from_eng">from</string>
     <string name="loading_eng">loading</string>
 
+    <string name="home_eng">home</string>
+    <string name="search_eng">search</string>
+    <string name="video_eng">video</string>
+    <string name="shop_eng">shop</string>
+    <string name="my_page_eng">my page</string>
+
     <string name="or">또는</string>
     <string name="login">로그인</string>
     <string name="kakao_login">카카오 로그인</string>
