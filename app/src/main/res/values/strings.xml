@@ -36,7 +36,7 @@
     <string name="terms_of_use">이용 약관</string>
     <string name="data_policy">데이터 정책</string>
     <string name="location_based_function">위치 기반 기능</string>
-
+    <string name="add_comment">댓글 달기…</string>
     <string name="create_user_name">사용자 이름 만들기</string>
 
     <string name="input_phone_number_or_email_address">전화번호 또는 이메일 주소 입력</string>
@@ -51,6 +51,10 @@
 
     <string name="format_birthday">%d년 %d월 %d일</string>
     <string name="format_age">%d세</string>
+    <string name="format_like_count">좋아요 %,2d</string>
+    <string name="format_show_all_comment">댓글 %,2d개 모두 보기</string>
+    <string name="format_count">%d/%d</string>
+    <string name="format_loginid_and_content"><b>%s</b>%s</string>
 
     <string name="description_input_number">보안 및 로그인 목적으로 Instagram에서 보내는\nSMS 알림을 수신할 수 있습니다.</string>
     <string name="description_cannot_founc_account">

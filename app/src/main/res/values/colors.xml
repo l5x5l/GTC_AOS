@@ -17,5 +17,6 @@
     <color name="gray100">#eaeaea</color>
     <color name="gray250">#bbbbbb</color>
     <color name="gray600">#6c6c6c</color>
+    <color name="gray800">#353535</color>
     <color name="kakao_yellow">#f5da0c</color>
 </resources>
