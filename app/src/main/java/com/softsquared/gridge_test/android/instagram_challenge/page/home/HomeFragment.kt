@@ -1,7 +1,12 @@
 package com.softsquared.gridge_test.android.instagram_challenge.page.home
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.PagingData
@@ -9,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.softsquared.gridge_test.android.instagram_challenge.R
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseFragment
 import com.softsquared.gridge_test.android.instagram_challenge.databinding.FragmentHomeBinding
+import com.softsquared.gridge_test.android.instagram_challenge.page.image_picker.ImagePickerActivity
 import com.softsquared.gridge_test.android.instagram_challenge.recycler.adapter.FeedAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -20,18 +26,37 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
     override val viewModel: HomeViewModel by lazy { ViewModelProvider(this)[HomeViewModel::class.java] }
     private var pagingJob : Job ?= null
 
+    private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+        if (isGranted) {
+            val intent = Intent(activity, ImagePickerActivity::class.java)
+            activity?.startActivity(intent)
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.lifecycleOwner = viewLifecycleOwner
 
+        setButton()
         setRecyclerView()
-
 
         binding.layoutRefresh.setOnRefreshListener {
             refreshList()
         }
         startPagingLoad()
+    }
+
+    private fun setButton(){
+        binding.ivbtnAddFeed.setOnClickListener {
+            val permissionCheck = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE)
+            if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
+                val intent = Intent(activity, ImagePickerActivity::class.java)
+                activity?.startActivity(intent)
+            } else {
+                requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+            }
+        }
     }
 
     private fun startPagingLoad(){
@@ -55,4 +80,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         binding.rvFeed.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.rvFeed.adapter = FeedAdapter()
     }
+
+
 }

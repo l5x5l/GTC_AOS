@@ -5,6 +5,7 @@
     tools:ignore="LockedOrientationActivity">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -48,6 +49,7 @@
        <activity android:name=".page.sign_up.confirmation.SignUpConfirmationActivity" android:taskAffinity="com.insta_challenge_sign_up"
            android:screenOrientation="portrait"/>
         <activity android:name=".page.main.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".page.image_picker.ImagePickerActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.softsquared.gridge_test.android.instagram_challenge.base_component
 
+import android.view.View
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
@@ -26,5 +27,19 @@ object BindingAdapters {
         imageUrl?.let {
             Glide.with(view).load(it).into(view)
         }
+    }
+
+    @JvmStatic
+    @BindingAdapter("thumbnailImageUrl")
+    fun setThumbnailImageByUrl(view : AppCompatImageView, imageUrl : String ?= null) {
+        imageUrl?.let {
+            Glide.with(view).load(it).override(180, 180).into(view)
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter("isVisible")
+    fun setVisibilityByBoolean(view : View, isVisible : Boolean = false){
+        view.visibility = if (isVisible) View.VISIBLE else View.INVISIBLE
     }
 }
