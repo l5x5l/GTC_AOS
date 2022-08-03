@@ -5,7 +5,9 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -25,6 +27,7 @@ import kotlinx.coroutines.withContext
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home) {
     override val viewModel: HomeViewModel by lazy { ViewModelProvider(this)[HomeViewModel::class.java] }
     private var pagingJob : Job ?= null
+    private lateinit var feedWriteResult : ActivityResultLauncher<Intent>
 
     private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
         if (isGranted) {
@@ -41,6 +44,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         setButton()
         setRecyclerView()
 
+        feedWriteResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
+            if (result.resultCode == AppCompatActivity.RESULT_OK) {
+                refreshList()
+            }
+        }
+
         binding.layoutRefresh.setOnRefreshListener {
             refreshList()
         }
@@ -52,7 +61,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
             val permissionCheck = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE)
             if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
                 val intent = Intent(activity, ImagePickerActivity::class.java)
-                activity?.startActivity(intent)
+                feedWriteResult.launch(intent)
             } else {
                 requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
             }

@@ -40,6 +40,7 @@
         <entry key="app/src/main/res/layout/activity_sign_up_terms.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_sign_up_user_name.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_start.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_write_feed.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_sign_up_id_email.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_sign_up_id_phone.xml" value="0.25" />

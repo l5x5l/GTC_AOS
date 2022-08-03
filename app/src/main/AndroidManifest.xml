@@ -50,6 +50,7 @@
            android:screenOrientation="portrait"/>
         <activity android:name=".page.main.MainActivity" android:screenOrientation="portrait"/>
         <activity android:name=".page.image_picker.ImagePickerActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".page.write_feed.WriteFeedActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
