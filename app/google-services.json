@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "512488347361",
+    "project_id": "gride-test",
+    "storage_bucket": "gride-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512488347361:android:3fd8e202633f60bdf109a0",
+        "android_client_info": {
+          "package_name": "com.softsquared.gridge_test.android.instagram_challenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512488347361-1o9i7j8s6v2cvpk7vba47k8g5fidrebs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxq2PbD3bTHc1ZSmkBUgttd68ts_edZOs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "512488347361-1o9i7j8s6v2cvpk7vba47k8g5fidrebs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

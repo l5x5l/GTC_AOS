@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="comment"
+            type="com.softsquared.gridge_test.android.instagram_challenge.data.in_app.CommentData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/interval_middle">
+
+        <View
+            android:id="@+id/line_top"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray100"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_profile"
+            android:layout_width="@dimen/profile_size"
+            android:layout_height="@dimen/profile_size"
+            android:layout_margin="@dimen/interval_middle"
+            app:cardCornerRadius="100dp"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line_top">
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivbtn_like"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:src="@drawable/ic_like_stroke"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="@dimen/interval_small"
+            android:padding="12dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/cv_profile"
+            app:layout_constraintStart_toEndOf="@id/cv_profile"
+            app:layout_constraintEnd_toStartOf="@id/ivbtn_like"
+            android:layout_marginEnd="@dimen/interval_small"
+            android:layout_marginStart="@dimen/interval_small"
+            userId="@{comment.loginId}"
+            content="@{comment.comment}"
+            tools:text="이름과 게시물 내용"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/tv_comment"
+            app:layout_constraintTop_toBottomOf="@id/tv_comment"
+            style="@style/text_caption"
+            tools:text="4초 전"
+            createdAt="@{comment.createdAt}"
+            android:layout_marginTop="@dimen/interval_small"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvbtn_write_reply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tv_date"
+            app:layout_constraintTop_toBottomOf="@id/tv_comment"
+            android:layout_marginStart="@dimen/interval_middle"
+            android:layout_marginTop="@dimen/interval_small"
+            style="@style/text_caption"
+            android:text="@string/add_reply"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
