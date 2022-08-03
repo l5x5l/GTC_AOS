@@ -178,14 +178,15 @@
             app:layout_constraintStart_toStartOf="@id/guide_content_start"
             app:layout_constraintEnd_toEndOf="@id/guide_content_end"
             app:layout_constraintTop_toBottomOf="@id/tv_like_count"
-            android:text="@{@string/format_loginid_and_content(feedData.loginId, feedData.text)}"
+            userId="@{feedData.loginId}"
+            content="@{feedData.text}"
             tools:text="alwlrma"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvbtn_show_all_comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/interval_small"
+            android:paddingTop="@dimen/interval_small"
             app:layout_constraintStart_toStartOf="@id/guide_content_start"
             app:layout_constraintTop_toBottomOf="@id/tv_feed_content"
             android:text="@{@string/format_show_all_comment(feedData.commentCount)}"
