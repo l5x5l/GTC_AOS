@@ -35,6 +35,7 @@
     <string name="share">공유</string>
     <string name="confirmation">확인</string>
     <string name="phrases">문구</string>
+    <string name="posting">게시</string>
 
     <string name="try_again">다시 시도</string>
     <string name="do_sign_up">가입하기</string>
@@ -51,6 +52,7 @@
     <string name="tag_people">사람 태그하기</string>
     <string name="add_location">위치 추가</string>
     <string name="detail_setting">고급 설정</string>
+    <string name="add_reply">답글 달기</string>
 
     <string name="input_phone_number_or_email_address">전화번호 또는 이메일 주소 입력</string>
     <string name="sign_up_by_phone_number_or_email_address">휴대폰 번호 또는 이메일 주소로 가입</string>
@@ -61,6 +63,7 @@
     <string name="message_not_match_to_user_name_format">아이디는 영어,숫자,\'_\',\'.\'만 사용 가능합니다.</string>
     <string name="message_duplicate_user_name">사용자 이름 %s을(를) 사용할 수 없습니다.</string>
     <string name="message_expire_jwt_token">토큰 만료, 재로그인이 필요합니다.</string>
+    <string name="message_not_exist_feed">존재하지 않는 게시물입니다.</string>
 
     <string name="format_birthday">%d년 %d월 %d일</string>
     <string name="format_age">%d세</string>
