@@ -8,6 +8,7 @@ import com.softsquared.gridge_test.android.instagram_challenge.base_component.Ba
 import com.softsquared.gridge_test.android.instagram_challenge.databinding.ActivitySignUpIdBinding
 import com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.id.email.SignUpIdEmailFragment
 import com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.id.phone_number.SignUpIdPhoneFragment
+import com.softsquared.gridge_test.android.instagram_challenge.utils.closeSignUpSteps
 
 class SignUpIdActivity : BaseActivity<ActivitySignUpIdBinding>(R.layout.activity_sign_up_id) {
 
@@ -46,7 +47,7 @@ class SignUpIdActivity : BaseActivity<ActivitySignUpIdBinding>(R.layout.activity
         }
 
         binding.viewBottomArea.tvbtnLogin.setOnClickListener {
-            finishAffinity()
+            closeSignUpSteps(this)
         }
 
         binding.ivbtnBack.setOnClickListener {

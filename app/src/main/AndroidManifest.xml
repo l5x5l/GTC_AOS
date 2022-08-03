@@ -32,22 +32,14 @@
         <activity android:name=".page.login.LoginActivity" android:screenOrientation="portrait"/>
         <activity android:name=".page.sign_up.base.SignUpActivity" android:taskAffinity="com.insta_challenge_sign_up"
             android:screenOrientation="portrait"/>
-        <activity android:name=".page.sign_up.id.SignUpIdActivity" android:taskAffinity="com.insta_challenge_sign_up"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".page.sign_up.auth_code.SignUpAuthCodeActivity" android:taskAffinity="com.insta_challenge_sign_up"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".page.sign_up.name.SignUpNameActivity" android:taskAffinity="com.insta_challenge_sign_up"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".page.sign_up.password.SignUpPasswordActivity" android:taskAffinity="com.insta_challenge_sign_up"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".page.sign_up.birthday.SignUpBirthdayActivity" android:taskAffinity="com.insta_challenge_sign_up"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".page.sign_up.terms.SignUpTermsActivity" android:taskAffinity="com.insta_challenge_sign_up"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".page.sign_up.user_name.SignUpUserNameActivity" android:taskAffinity="com.insta_challenge_sign_up"
-            android:screenOrientation="portrait"/>
-       <activity android:name=".page.sign_up.confirmation.SignUpConfirmationActivity" android:taskAffinity="com.insta_challenge_sign_up"
-           android:screenOrientation="portrait"/>
+        <activity android:name=".page.sign_up.id.SignUpIdActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".page.sign_up.auth_code.SignUpAuthCodeActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".page.sign_up.name.SignUpNameActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".page.sign_up.password.SignUpPasswordActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".page.sign_up.birthday.SignUpBirthdayActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".page.sign_up.terms.SignUpTermsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".page.sign_up.user_name.SignUpUserNameActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".page.sign_up.confirmation.SignUpConfirmationActivity" android:screenOrientation="portrait"/>
         <activity android:name=".page.main.MainActivity" android:screenOrientation="portrait"/>
         <activity android:name=".page.image_picker.ImagePickerActivity" android:screenOrientation="portrait"/>
         <activity android:name=".page.write_feed.WriteFeedActivity" android:screenOrientation="portrait"/>

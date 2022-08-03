@@ -8,6 +8,7 @@ import com.softsquared.gridge_test.android.instagram_challenge.base_component.Ba
 import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.SignUpData
 import com.softsquared.gridge_test.android.instagram_challenge.databinding.ActivitySignUpPasswordBinding
 import com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.birthday.SignUpBirthdayActivity
+import com.softsquared.gridge_test.android.instagram_challenge.utils.closeSignUpSteps
 
 class SignUpPasswordActivity : BaseActivity<ActivitySignUpPasswordBinding>(R.layout.activity_sign_up_password) {
     override val viewModel : SignUpPasswordViewModel by lazy { ViewModelProvider(this)[SignUpPasswordViewModel::class.java] }
@@ -33,8 +34,7 @@ class SignUpPasswordActivity : BaseActivity<ActivitySignUpPasswordBinding>(R.lay
         }
 
         binding.viewBottomArea.tvbtnLogin.setOnClickListener {
-            SignUpData.clearInstance()
-            finishAffinity()
+            closeSignUpSteps(this)
         }
     }
 }

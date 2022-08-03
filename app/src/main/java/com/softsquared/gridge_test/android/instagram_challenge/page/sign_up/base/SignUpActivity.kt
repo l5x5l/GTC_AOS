@@ -23,5 +23,9 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
             val intent = Intent(this, SignUpIdActivity::class.java)
             startActivity(intent)
         }
+
+        binding.viewBottomArea.tvbtnLogin.setOnClickListener {
+            finish()
+        }
     }
 }

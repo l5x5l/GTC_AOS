@@ -21,6 +21,17 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
 
     override val viewModel : LoginViewModel by lazy { ViewModelProvider(this)[LoginViewModel::class.java] }
 
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+
+        val isLoginSuccess = intent?.getBooleanExtra(GlobalApplication.X_ACCESS_TOKEN, false)
+        if (isLoginSuccess == true){
+            val startIntent = Intent(baseContext, MainActivity::class.java)
+            startActivity(startIntent)
+            finish()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -47,7 +58,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                                 positiveWord = getString(R.string.do_sign_up), negativeWord = getString(R.string.try_again),
                                 positiveCallback = {
                                     val intent = Intent(baseContext, SignUpActivity::class.java)
-                                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                                     startActivity(intent)
                                 },
                                 negativeCallback = {  }
@@ -87,15 +97,15 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
         setButton()
     }
 
-    override fun onRestart() {
-        super.onRestart()
-
-        if (GlobalApplication.hasJwtToken()) {
-            val intent = Intent(baseContext, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-    }
+//    override fun onRestart() {
+//        super.onRestart()
+//
+//        if (GlobalApplication.hasJwtToken()) {
+//            val intent = Intent(baseContext, MainActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
+//    }
 
     override fun setButton() {
         binding.ivbtnTogglePasswordVisibility.setOnClickListener { imageView ->
@@ -112,7 +122,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
 
         binding.tvbtnSignUp.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
     }
