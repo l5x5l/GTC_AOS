@@ -51,22 +51,25 @@
             android:padding="@dimen/interval_small"
             android:layout_gravity="bottom">
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cv_profile"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 app:cardElevation="0dp"
                 app:cardCornerRadius="100dp"
                 app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintStart_toStartOf="parent"
+                app:strokeColor="@color/gray250"
+                app:strokeWidth="1dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_profile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:src="@drawable/image_default_profile"
                     tools:background="@color/black_t60"/>
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
             <LinearLayout
                 android:layout_width="0dp"

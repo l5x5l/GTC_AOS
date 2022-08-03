@@ -21,17 +21,25 @@
             android:background="@color/gray100"
             app:layout_constraintTop_toTopOf="parent"/>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_profile"
             android:layout_width="@dimen/profile_size"
             android:layout_height="@dimen/profile_size"
             android:layout_margin="@dimen/interval_middle"
             app:cardCornerRadius="100dp"
             app:cardElevation="0dp"
+            app:strokeColor="@color/gray250"
+            app:strokeWidth="1dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/line_top">
 
-        </androidx.cardview.widget.CardView>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_profile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/image_default_profile"/>
+
+        </com.google.android.material.card.MaterialCardView>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivbtn_like"

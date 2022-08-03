@@ -26,8 +26,9 @@
         <entry key="app/src/main/res/drawable/shape_login_edittext.xml" value="0.1095" />
         <entry key="app/src/main/res/drawable/shape_login_edittext_error.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/shape_spread_button.xml" value="0.142" />
+        <entry key="app/src/main/res/drawable/shape_stroke.xml" value="0.2395" />
         <entry key="app/src/main/res/drawable/shape_text_image_count.xml" value="0.1515" />
-        <entry key="app/src/main/res/layout/activity_comment.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_comment.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_image_picker.xml" value="0.125" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.125" />

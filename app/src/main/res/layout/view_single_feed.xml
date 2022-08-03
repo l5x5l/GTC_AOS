@@ -44,7 +44,7 @@
             android:paddingHorizontal="@dimen/interval_middle"
             android:paddingVertical="@dimen/interval_small">
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cv_profile"
                 android:layout_width="0dp"
                 android:layout_height="36dp"
@@ -53,16 +53,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintDimensionRatio="1:1"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="0dp">
+                app:cardElevation="0dp"
+                app:strokeColor="@color/gray250"
+                app:strokeWidth="1dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_profile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/ic_profile_fill"
-                    android:tint="@color/gray600"/>
+                    android:src="@drawable/image_default_profile"/>
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_login_id"
@@ -211,18 +212,29 @@
             app:layout_constraintTop_toBottomOf="@id/ivbtn_like"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingHorizontal="8dp">
+            android:paddingHorizontal="@dimen/interval_middle">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_profile_fill"
-                android:tint="@color/gray250"/>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/gray250">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/image_default_profile"/>
+            </com.google.android.material.card.MaterialCardView>
+
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
                 android:layout_weight="1"
+                android:layout_marginStart="@dimen/interval_small"
                 android:text="@string/add_comment"/>
 
         </LinearLayout>
