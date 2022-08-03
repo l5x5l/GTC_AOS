@@ -7,6 +7,7 @@ import com.softsquared.gridge_test.android.instagram_challenge.R
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseActivity
 import com.softsquared.gridge_test.android.instagram_challenge.databinding.ActivitySignUpNameBinding
 import com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.password.SignUpPasswordActivity
+import com.softsquared.gridge_test.android.instagram_challenge.utils.closeSignUpSteps
 
 class SignUpNameActivity : BaseActivity<ActivitySignUpNameBinding>(R.layout.activity_sign_up_name) {
 
@@ -20,6 +21,10 @@ class SignUpNameActivity : BaseActivity<ActivitySignUpNameBinding>(R.layout.acti
 
         binding.viewLoginEdittextName.setTextChangeCallback {
             viewModel.checkNextButtonState()
+        }
+
+        binding.viewBottomArea.tvbtnLogin.setOnClickListener {
+            closeSignUpSteps(this)
         }
 
         binding.btnNext.setOnClickListener {

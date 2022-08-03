@@ -7,8 +7,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.softsquared.gridge_test.android.instagram_challenge.R
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseActivity
-import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.SignUpData
 import com.softsquared.gridge_test.android.instagram_challenge.databinding.ActivitySignUpConfirmationBinding
+import com.softsquared.gridge_test.android.instagram_challenge.utils.closeSignUpSteps
 import kotlinx.coroutines.launch
 
 class SignUpConfirmationActivity : BaseActivity<ActivitySignUpConfirmationBinding>(R.layout.activity_sign_up_confirmation){
@@ -25,7 +25,7 @@ class SignUpConfirmationActivity : BaseActivity<ActivitySignUpConfirmationBindin
                 viewModel.signUpResult.collect { resultCode ->
                     when (resultCode) {
                         1000 -> {
-                            finishAffinity()
+                            closeSignUpSteps(this@SignUpConfirmationActivity, isLogin = true)
                         }
                         else -> {
 
@@ -40,8 +40,7 @@ class SignUpConfirmationActivity : BaseActivity<ActivitySignUpConfirmationBindin
 
     override fun setButton() {
         binding.tvbtnLogin.setOnClickListener {
-            SignUpData.clearInstance()
-            finishAffinity()
+            closeSignUpSteps(this)
         }
 
         binding.btnSignUp.setOnClickListener {
