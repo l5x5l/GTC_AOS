@@ -51,7 +51,7 @@ class ViewPageCountDot(context: Context, attrs : AttributeSet) : LinearLayout(co
              4
         } else { targetPosition }
 
-        if (tempTargetPosition != currentItemPosition) {
+        if (tempTargetPosition != currentItemPosition && tempTargetPosition < dotList.size) {
             dotList[currentItemPosition].background = ContextCompat.getDrawable(context, R.drawable.shape_dot_deactive)
             dotList[tempTargetPosition].background = ContextCompat.getDrawable(context, R.drawable.shape_dot_active)
             currentItemPosition = tempTargetPosition
