@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
 class SignUpUserNameViewModel : BaseViewModel() {
 
-    private val repository = UserRepository()
+    private val repository = UserRepository.getInstance()
 
     private val _checkDuplicateLoginIdResult = MutableEventFlow<Int>()
     val checkDuplicateLoginIdResult = _checkDuplicateLoginIdResult.asEventFlow()

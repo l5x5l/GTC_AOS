@@ -9,7 +9,7 @@ import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.SignU
 import com.softsquared.gridge_test.android.instagram_challenge.retrofit_interface.UserRetrofitInterface
 import retrofit2.HttpException
 
-class UserRepository {
+class UserRepository private constructor() {
     companion object {
         private var instance : UserRepository ?= null
 
