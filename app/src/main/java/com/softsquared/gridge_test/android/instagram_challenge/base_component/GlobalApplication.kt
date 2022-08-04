@@ -2,6 +2,8 @@ package com.softsquared.gridge_test.android.instagram_challenge.base_component
 
 import android.app.Application
 import android.content.SharedPreferences
+import com.kakao.sdk.common.KakaoSdk
+import com.softsquared.gridge_test.android.instagram_challenge.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -32,6 +34,7 @@ class GlobalApplication : Application() {
         super.onCreate()
         initRetrofitInstance()
         globalSharedPreferences = applicationContext.getSharedPreferences("GTC_PROBE", MODE_PRIVATE)
+        KakaoSdk.init(this, BuildConfig.KAKAO_API_KEY)
     }
 
     private fun initRetrofitInstance() {
