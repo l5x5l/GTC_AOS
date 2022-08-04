@@ -3,3 +3,5 @@ package com.softsquared.gridge_test.android.instagram_challenge.data.api.respons
 data class ResponseUserSignIn(val jwt : String)
 
 data class ResponseUserSignUp(val jwt : String)
+
+data class ResponseUserKakaoSignIn(val jwt : String, val loginId : String)

@@ -64,6 +64,7 @@
     <string name="message_duplicate_user_name">사용자 이름 %s을(를) 사용할 수 없습니다.</string>
     <string name="message_expire_jwt_token">토큰 만료, 재로그인이 필요합니다.</string>
     <string name="message_not_exist_feed">존재하지 않는 게시물입니다.</string>
+    <string name="message_kakao_login_error">카카오 로그인 과정에서 문제가 발생했습니다.</string>
 
     <string name="format_birthday">%d년 %d월 %d일</string>
     <string name="format_age">%d세</string>

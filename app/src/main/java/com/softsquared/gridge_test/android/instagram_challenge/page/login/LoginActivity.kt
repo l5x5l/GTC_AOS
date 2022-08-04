@@ -2,6 +2,7 @@ package com.softsquared.gridge_test.android.instagram_challenge.page.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import androidx.appcompat.widget.AppCompatImageView
@@ -12,14 +13,17 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.softsquared.gridge_test.android.instagram_challenge.R
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseActivity
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.GlobalApplication
+import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.SignUpData
 import com.softsquared.gridge_test.android.instagram_challenge.databinding.ActivityLoginBinding
 import com.softsquared.gridge_test.android.instagram_challenge.page.main.MainActivity
 import com.softsquared.gridge_test.android.instagram_challenge.page.sign_up.base.SignUpActivity
+import com.softsquared.gridge_test.android.instagram_challenge.utils.KakaoLogin
 import kotlinx.coroutines.launch
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
 
     override val viewModel : LoginViewModel by lazy { ViewModelProvider(this)[LoginViewModel::class.java] }
+    private lateinit var kakaoLogin: KakaoLogin
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
@@ -65,35 +69,31 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                         }
                     } // loginResult.collect
                 } // launch
+
+                launch {
+                    viewModel.kakaoLoginResult.collect{ resultCode ->
+                        when (resultCode) {
+                            1000 -> {
+                                val intent = Intent(baseContext, MainActivity::class.java)
+                                startActivity(intent)
+                                finish()
+                            }
+                            2100 -> {
+                                SignUpData.getInstance().isSocial = true
+                                val intent = Intent(baseContext, SignUpActivity::class.java)
+                                startActivity(intent)
+                            }
+                            else -> {
+                                showSimpleToastMessage(getString(R.string.message_kakao_login_error))
+                            }
+                        }
+                    }
+                }
             } // repeatOnLifecycle
         } // lifecycleScope
 
-        binding.viewLoginEdittextId.setEdittextKeyListener(listener = object : View.OnKeyListener {
-            override fun onKey(view: View?, keyCode: Int, keyEvent: KeyEvent?): Boolean {
-                if (keyEvent?.action == KeyEvent.ACTION_DOWN) { return false }
-
-                when (keyCode) {
-                    KeyEvent.KEYCODE_ENTER -> {
-                        binding.viewLoginEdittextPassword.setFocus()
-                    }
-                }
-                return true
-            }
-        })
-
-        binding.viewLoginEdittextPassword.setEdittextKeyListener(listener = object : View.OnKeyListener {
-            override fun onKey(view: View?, keyCode: Int, keyEvent: KeyEvent?): Boolean {
-                if (keyEvent?.action == KeyEvent.ACTION_DOWN) { return false }
-
-                when (keyCode) {
-                    KeyEvent.KEYCODE_ENTER -> {
-                        binding.btnLogin.performClick()
-                    }
-                }
-                return true
-            }
-        })
-
+        kakaoLogin = KakaoLogin(this, ::kakaoLoginSuccess, ::kakaoLoginError)
+        setEdittext()
         setButton()
     }
 
@@ -124,5 +124,45 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
+
+        binding.btnKakaoLogin.setOnClickListener {
+            kakaoLogin.tryKakaoLogin()
+        }
+    }
+
+    private fun setEdittext(){
+        binding.viewLoginEdittextId.setEdittextKeyListener(listener = object : View.OnKeyListener {
+            override fun onKey(view: View?, keyCode: Int, keyEvent: KeyEvent?): Boolean {
+                if (keyEvent?.action == KeyEvent.ACTION_DOWN) { return false }
+
+                when (keyCode) {
+                    KeyEvent.KEYCODE_ENTER -> {
+                        binding.viewLoginEdittextPassword.setFocus()
+                    }
+                }
+                return true
+            }
+        })
+
+        binding.viewLoginEdittextPassword.setEdittextKeyListener(listener = object : View.OnKeyListener {
+            override fun onKey(view: View?, keyCode: Int, keyEvent: KeyEvent?): Boolean {
+                if (keyEvent?.action == KeyEvent.ACTION_DOWN) { return false }
+
+                when (keyCode) {
+                    KeyEvent.KEYCODE_ENTER -> {
+                        binding.btnLogin.performClick()
+                    }
+                }
+                return true
+            }
+        })
+    }
+
+    private fun kakaoLoginSuccess(kakaoToken : String){
+        viewModel.tryKakaoLogin(accessToken = kakaoToken)
+    }
+
+    private fun kakaoLoginError(error : Throwable) {
+        Log.e("kakao login", error.toString())
     }
 }

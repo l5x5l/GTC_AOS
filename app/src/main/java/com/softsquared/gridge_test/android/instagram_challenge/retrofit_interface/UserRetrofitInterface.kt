@@ -1,8 +1,10 @@
 package com.softsquared.gridge_test.android.instagram_challenge.retrofit_interface
 
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseApiResponse
+import com.softsquared.gridge_test.android.instagram_challenge.data.api.request.RequestUserKakaoSignIn
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.request.RequestUserSignIn
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.request.RequestUserSignUp
+import com.softsquared.gridge_test.android.instagram_challenge.data.api.response.ResponseUserKakaoSignIn
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.response.ResponseUserSignIn
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.response.ResponseUserSignUp
 import retrofit2.Response
@@ -23,4 +25,7 @@ interface UserRetrofitInterface {
 
     @POST("app/sign-up")
     suspend fun postSignUp(@Body params : RequestUserSignUp) : Response<BaseApiResponse<ResponseUserSignUp>>
+
+    @POST("app/kakao-sign-in")
+    suspend fun postKakaoSignIn(@Body params : RequestUserKakaoSignIn) : Response<BaseApiResponse<ResponseUserKakaoSignIn>>
 }

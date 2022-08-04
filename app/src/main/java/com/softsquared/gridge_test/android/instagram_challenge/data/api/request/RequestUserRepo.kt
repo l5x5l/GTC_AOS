@@ -6,4 +6,4 @@ data class RequestUserSignIn(val loginId : String, val password : String)
 
 data class RequestUserKakaoSignUp(val accessToken : String, val realName : String, val birthDate : String, val loginId : String, val phoneNumber : String)
 
-data class RequestKakaoSignIn(val accessToken : String)
+data class RequestUserKakaoSignIn(val accessToken : String)

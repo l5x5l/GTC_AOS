@@ -26,6 +26,9 @@ class LoginViewModel : BaseViewModel() {
     private val _loginResult = MutableEventFlow<Boolean>()
     val loginResult = _loginResult.asEventFlow()
 
+    private val _kakaoLoginResult = MutableEventFlow<Int>()
+    val kakaoLoginResult = _kakaoLoginResult.asEventFlow()
+
     private suspend fun tryLogin() {
         startLoadingDialogDebounce()
         val response = repository.postLogin(loginId = loginId.value, password = password.value)
@@ -53,4 +56,19 @@ class LoginViewModel : BaseViewModel() {
             }
         }
     }
+
+    fun tryKakaoLogin(accessToken : String) {
+        viewModelScope.launch {
+            startLoadingDialogDebounce()
+            val response = repository.postKakaoSignIn(accessToken = accessToken)
+            setLoadingDialogState(false)
+            if (response.code == 1000) {
+                response.result?.let {
+                    GlobalApplication.saveJwtToken(it.jwt)
+                }
+            }
+            _kakaoLoginResult.emit(response.code)
+        }
+    }
+
 }
