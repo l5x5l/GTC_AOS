@@ -46,12 +46,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
         feedWriteResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
             if (result.resultCode == AppCompatActivity.RESULT_OK) {
-                refreshList()
+                (binding.rvFeed.adapter as FeedAdapter).refresh()
             }
         }
 
         binding.layoutRefresh.setOnRefreshListener {
-            refreshList()
+            (binding.rvFeed.adapter as FeedAdapter).refresh()
         }
         startPagingLoad()
     }
@@ -78,11 +78,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
                 (binding.rvFeed.adapter as FeedAdapter).submitData(pagingData)
             }
         }
-    }
-
-    private fun refreshList() {
-        pagingJob?.cancel()
-        startPagingLoad()
     }
 
     private fun setRecyclerView() {

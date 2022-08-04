@@ -36,6 +36,7 @@ class LoginViewModel : BaseViewModel() {
         if (response.code == 1000) {
             response.result?.let {
                 GlobalApplication.saveJwtToken(it.jwt)
+                GlobalApplication.saveLoginId(it.loginId)
             }
         }
         _loginResult.emit(response.code == 1000)
@@ -65,6 +66,7 @@ class LoginViewModel : BaseViewModel() {
             if (response.code == 1000) {
                 response.result?.let {
                     GlobalApplication.saveJwtToken(it.jwt)
+                    GlobalApplication.saveLoginId(it.loginId)
                 }
             }
             _kakaoLoginResult.emit(response.code)

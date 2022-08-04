@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.softsquared.gridge_test.android.instagram_challenge.page.write_feed.WriteFeedViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -40,7 +46,8 @@
                 android:paddingHorizontal="@dimen/interval_middle"
                 android:gravity="center_vertical"
                 android:textColor="@color/blue"
-                android:text="@string/share"/>
+                android:text="@string/share"
+                android:onClick="@{() -> viewModel.tryUploadImage()}"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvbtn_confirmation"
@@ -115,6 +122,8 @@
                        android:textCursorDrawable="@drawable/shape_login_edit_text_cursor"
                        android:layout_weight="1"
                        android:layout_marginStart="@dimen/interval_middle"
+                       android:text="@={viewModel.feedText}"
+                       android:maxLength="1000"
                        tools:text="테스트 메세지\n이것도 테스트\n줄넘김\n어디까지?"
                        android:hint="@string/hint_input_text_content"/>
                </LinearLayout>

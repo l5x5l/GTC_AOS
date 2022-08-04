@@ -24,6 +24,7 @@ class SignUpConfirmationViewModel : BaseViewModel() {
             if (response.code == 1000){
                 response.result?.let {
                     GlobalApplication.saveJwtToken(it.jwt)
+                    GlobalApplication.saveLoginId(SignUpData.getInstance().loginId)
                 }
             }
             _signUpResult.emit(response.code)

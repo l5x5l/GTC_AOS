@@ -1,6 +1,8 @@
 package com.softsquared.gridge_test.android.instagram_challenge.repository
 
+import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseApiResponse
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.GlobalApplication
+import com.softsquared.gridge_test.android.instagram_challenge.data.api.request.RequestFeedCreate
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.response.ResponseComments
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.response.ResponseFeeds
 import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.CommentData
@@ -34,6 +36,14 @@ class FeedRepository private constructor() {
         val result = retrofitImpl.getComments(pageIdx = pageIdx, size = pageSize, feedId = feedId)
         if (result.isSuccessful && result.body()!!.code == 1000) {
             return result.body()!!.result?.map { ResponseComments.toCommentData(it) } ?: listOf()
+        }
+        throw HttpException(result)
+    }
+
+    suspend fun postCreateFeed(feedText : String, contentsUrls : ArrayList<String>) : BaseApiResponse<Nothing> {
+        val result = retrofitImpl.postCreateFeed(params = RequestFeedCreate(feedText = feedText, contentsUrls = contentsUrls))
+        if (result.isSuccessful) {
+            return result.body()!!
         }
         throw HttpException(result)
     }

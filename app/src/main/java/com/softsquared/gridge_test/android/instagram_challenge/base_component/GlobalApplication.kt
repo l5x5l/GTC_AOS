@@ -2,6 +2,7 @@ package com.softsquared.gridge_test.android.instagram_challenge.base_component
 
 import android.app.Application
 import android.content.SharedPreferences
+import com.google.firebase.FirebaseApp
 import com.kakao.sdk.common.KakaoSdk
 import com.softsquared.gridge_test.android.instagram_challenge.BuildConfig
 import okhttp3.OkHttpClient
@@ -28,6 +29,18 @@ class GlobalApplication : Application() {
         fun hasJwtToken() : Boolean {
             return globalSharedPreferences.contains(X_ACCESS_TOKEN)
         }
+
+        fun saveLoginId(loginId : String){
+            globalSharedPreferences.edit().putString(LOGIN_ID, loginId).commit()
+        }
+
+        fun clearLoginId() {
+            globalSharedPreferences.edit().remove(LOGIN_ID).commit()
+        }
+
+        fun getLoginId() : String {
+            return globalSharedPreferences.getString(LOGIN_ID, "") ?: ""
+        }
     }
 
     override fun onCreate() {
@@ -35,6 +48,7 @@ class GlobalApplication : Application() {
         initRetrofitInstance()
         globalSharedPreferences = applicationContext.getSharedPreferences("GTC_PROBE", MODE_PRIVATE)
         KakaoSdk.init(this, BuildConfig.KAKAO_API_KEY)
+        FirebaseApp.initializeApp(baseContext)
     }
 
     private fun initRetrofitInstance() {
