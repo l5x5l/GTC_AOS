@@ -69,6 +69,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
     }
 
     private fun startPagingLoad(){
+        pagingJob?.cancel()
         pagingJob = lifecycleScope.launch {
             (binding.rvFeed.adapter as FeedAdapter).submitData(PagingData.empty())
             viewModel.pagingFlow.collectLatest { pagingData ->
