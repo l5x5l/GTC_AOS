@@ -36,6 +36,9 @@
     <string name="confirmation">확인</string>
     <string name="phrases">문구</string>
     <string name="posting">게시</string>
+    <string name="feed">게시물</string>
+    <string name="follower">팔로워</string>
+    <string name="following">팔로잉</string>
 
     <string name="try_again">다시 시도</string>
     <string name="do_sign_up">가입하기</string>
@@ -53,6 +56,8 @@
     <string name="add_location">위치 추가</string>
     <string name="detail_setting">고급 설정</string>
     <string name="add_reply">답글 달기</string>
+    <string name="edit_profile">프로필 편집</string>
+    <string name="taged_photo_and_video">내가 태그된 사진과 동영상</string>
 
     <string name="input_phone_number_or_email_address">전화번호 또는 이메일 주소 입력</string>
     <string name="sign_up_by_phone_number_or_email_address">휴대폰 번호 또는 이메일 주소로 가입</string>
@@ -65,6 +70,7 @@
     <string name="message_expire_jwt_token">토큰 만료, 재로그인이 필요합니다.</string>
     <string name="message_not_exist_feed">존재하지 않는 게시물입니다.</string>
     <string name="message_kakao_login_error">카카오 로그인 과정에서 문제가 발생했습니다.</string>
+    <string name="message_network_error">정보를 불러오는데 실패했습니다. 잠시 후에 다시 실행해주세요</string>
 
     <string name="format_birthday">%d년 %d월 %d일</string>
     <string name="format_age">%d세</string>
@@ -87,6 +93,7 @@
     <string name="description_create_user_name">새 계정에 사용할 사용자 이름을 선택하세요. 나중에 언제든지 변경할 수 있습니다.</string>
     <string name="description_create_account_confirmation">나중에 언제든지 사용자 이름을 변경할 수 있습니다.</string>
     <string name="description_agree_to_terms">Instagram은 회원님의 개인 정보를 안전하게 보호합니다. 새 계정을 만들려면 모든 약관에 동의하세요.</string>
+    <string name="description_taged_photo_and_video">사람들이 회원님을 사진 및 동영상에 태그하면\n태그된 사진 및 동영상이 여기에 표시됩니다.</string>
 
     <string name="question_do_not_have_an_account">계정이 없으신가요?</string>
     <string name="question_already_have_an_account">이미 계정이 있으신가요?</string>
