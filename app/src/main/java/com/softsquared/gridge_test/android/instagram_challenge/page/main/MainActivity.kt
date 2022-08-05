@@ -7,6 +7,7 @@ import com.softsquared.gridge_test.android.instagram_challenge.base_component.Ba
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseViewModel
 import com.softsquared.gridge_test.android.instagram_challenge.databinding.ActivityMainBinding
 import com.softsquared.gridge_test.android.instagram_challenge.page.home.HomeFragment
+import com.softsquared.gridge_test.android.instagram_challenge.page.mypage.MyPageFragment
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
@@ -14,6 +15,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     private val homeFragment = HomeFragment()
     private var currentFragment : Fragment = homeFragment
+    private lateinit var mypageFragment : MyPageFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                 R.id.bottom_home -> {
                     if (currentFragment != homeFragment) {
                         supportFragmentManager.beginTransaction().hide(currentFragment).show(homeFragment).commit()
+                        currentFragment = homeFragment
                     }
                 }
                 R.id.bottom_search -> {
@@ -43,7 +46,16 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
                 }
                 R.id.bottom_mypage -> {
-
+                    if (currentFragment !is MyPageFragment) {
+                        if (!::mypageFragment.isInitialized) {
+                            mypageFragment = MyPageFragment()
+                            supportFragmentManager.beginTransaction().hide(currentFragment).add(binding.layoutMain.id, mypageFragment).commit()
+                        }
+                        else {
+                            supportFragmentManager.beginTransaction().hide(currentFragment).show(mypageFragment).commit()
+                        }
+                        currentFragment = mypageFragment
+                    }
                 }
                 else -> {
 

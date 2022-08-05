@@ -13,3 +13,11 @@ fun closeSignUpSteps(context: AppCompatActivity, isLogin : Boolean = false) {
     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
     context.startActivity(intent)
 }
+
+fun moveToLoginPage(context : AppCompatActivity) {
+    GlobalApplication.clearLoginId()
+    GlobalApplication.clearJwtToken()
+    val intent = Intent(context, LoginActivity::class.java)
+    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+    context.startActivity(intent)
+}

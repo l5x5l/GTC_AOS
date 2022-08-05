@@ -16,4 +16,7 @@ interface FeedRetrofitInterface {
 
     @POST("app/feed")
     suspend fun postCreateFeed(@Body params : RequestFeedCreate) : Response<BaseApiResponse<Nothing>>
+
+    @GET("app/feeds/user")
+    suspend fun getUserFeeds(@Query("pageIndex") pageIdx : Int, @Query("size") size : Int, @Query("loginId") loginId : String) : Response<BaseApiResponse<ArrayList<ResponseFeeds>>>
 }

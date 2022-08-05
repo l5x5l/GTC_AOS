@@ -4,6 +4,7 @@ import com.softsquared.gridge_test.android.instagram_challenge.base_component.Ba
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.GlobalApplication
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.request.RequestUserKakaoSignIn
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.request.RequestUserSignIn
+import com.softsquared.gridge_test.android.instagram_challenge.data.api.response.ResponseMyPage
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.response.ResponseUserKakaoSignIn
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.response.ResponseUserSignIn
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.response.ResponseUserSignUp
@@ -60,6 +61,14 @@ class UserRepository private constructor() {
     suspend fun postKakaoSignIn(accessToken : String) : BaseApiResponse<ResponseUserKakaoSignIn> {
         val result = retrofitImpl.postKakaoSignIn(params = RequestUserKakaoSignIn(accessToken = accessToken))
         if (result.isSuccessful){
+            return result.body()!!
+        }
+        throw HttpException(result)
+    }
+
+    suspend fun getMyPage(loginId : String) : BaseApiResponse<ResponseMyPage> {
+        val result = retrofitImpl.getMyPage(loginId = loginId)
+        if (result.isSuccessful) {
             return result.body()!!
         }
         throw HttpException(result)

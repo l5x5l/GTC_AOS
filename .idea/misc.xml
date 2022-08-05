@@ -16,6 +16,7 @@
         <entry key="app/src/main/res/drawable/selector_bottom_icon_video.xml" value="0.125" />
         <entry key="app/src/main/res/drawable/selector_edittext_login.xml" value="0.333" />
         <entry key="app/src/main/res/drawable/selector_login_button.xml" value="0.1345" />
+        <entry key="app/src/main/res/drawable/shape_base_button.xml" value="0.154" />
         <entry key="app/src/main/res/drawable/shape_birthday_edittext_area.xml" value="0.1355" />
         <entry key="app/src/main/res/drawable/shape_dot_active.xml" value="0.2255" />
         <entry key="app/src/main/res/drawable/shape_dot_deactive.xml" value="0.2255" />
@@ -45,6 +46,9 @@
         <entry key="app/src/main/res/layout/activity_start.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_write_feed.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_mypage.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_mypage_feedlist.xml" value="0.2006340579710145" />
+        <entry key="app/src/main/res/layout/fragment_mypage_taglist.xml" value="0.2006340579710145" />
         <entry key="app/src/main/res/layout/fragment_sign_up_id_email.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_sign_up_id_phone.xml" value="0.25" />
         <entry key="app/src/main/res/layout/view_comment.xml" value="0.33" />
@@ -56,6 +60,7 @@
         <entry key="app/src/main/res/layout/view_login_edit_text.xml" value="0.22" />
         <entry key="app/src/main/res/layout/view_login_id_select_button.xml" value="0.25" />
         <entry key="app/src/main/res/layout/view_single_feed.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/view_single_feed_image.xml" value="0.15942028985507245" />
         <entry key="app/src/main/res/layout/view_single_image.xml" value="0.13728470111448834" />
         <entry key="app/src/main/res/layout/view_test_edittext.xml" value="0.21693840579710144" />
         <entry key="app/src/main/res/menu/main_bottom_navigation.xml" value="0.2740740740740741" />

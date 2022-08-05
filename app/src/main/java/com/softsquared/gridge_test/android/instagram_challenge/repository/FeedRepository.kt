@@ -47,4 +47,12 @@ class FeedRepository private constructor() {
         }
         throw HttpException(result)
     }
+
+    suspend fun getUserFeeds(pageIdx : Int, pageSize : Int, loginId : String) : List<FeedData> {
+        val result = retrofitImpl.getUserFeeds(pageIdx = pageIdx, size = pageSize, loginId = loginId)
+        if (result.isSuccessful && result.body()!!.code == 1000) {
+            return result.body()!!.result?.map { ResponseFeeds.toFeedData(it) } ?: listOf()
+        }
+        throw HttpException(result)
+    }
 }

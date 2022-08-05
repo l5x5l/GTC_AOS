@@ -58,4 +58,10 @@ object BindingAdapters {
     fun setCreatedAtString(view : AppCompatTextView, createdAt : String) {
         view.text = getTimeDiffFromCurrent(createdAt, view.context)
     }
+
+    @JvmStatic
+    @BindingAdapter("number")
+    fun setNumberToTextView(view : AppCompatTextView, number : Int) {
+        view.text = number.toString()
+    }
 }

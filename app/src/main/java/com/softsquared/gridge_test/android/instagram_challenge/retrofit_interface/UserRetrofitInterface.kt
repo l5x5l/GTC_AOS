@@ -4,14 +4,12 @@ import com.softsquared.gridge_test.android.instagram_challenge.base_component.Ba
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.request.RequestUserKakaoSignIn
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.request.RequestUserSignIn
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.request.RequestUserSignUp
+import com.softsquared.gridge_test.android.instagram_challenge.data.api.response.ResponseMyPage
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.response.ResponseUserKakaoSignIn
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.response.ResponseUserSignIn
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.response.ResponseUserSignUp
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface UserRetrofitInterface {
     @GET("app/auto-sign-in")
@@ -28,4 +26,7 @@ interface UserRetrofitInterface {
 
     @POST("app/kakao-sign-in")
     suspend fun postKakaoSignIn(@Body params : RequestUserKakaoSignIn) : Response<BaseApiResponse<ResponseUserKakaoSignIn>>
+
+    @GET("app/users/{loginId}/my-page")
+    suspend fun getMyPage(@Path("loginId") loginId : String) : Response<BaseApiResponse<ResponseMyPage>>
 }
