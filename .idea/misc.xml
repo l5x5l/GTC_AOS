@@ -14,8 +14,10 @@
         <entry key="app/src/main/res/drawable/selector_bottom_icon_search.xml" value="0.125" />
         <entry key="app/src/main/res/drawable/selector_bottom_icon_shop.xml" value="0.125" />
         <entry key="app/src/main/res/drawable/selector_bottom_icon_video.xml" value="0.125" />
+        <entry key="app/src/main/res/drawable/selector_checkbox.xml" value="0.215" />
         <entry key="app/src/main/res/drawable/selector_edittext_login.xml" value="0.333" />
         <entry key="app/src/main/res/drawable/selector_login_button.xml" value="0.1345" />
+        <entry key="app/src/main/res/drawable/selector_text_button_color.xml" value="0.215" />
         <entry key="app/src/main/res/drawable/shape_base_button.xml" value="0.154" />
         <entry key="app/src/main/res/drawable/shape_birthday_edittext_area.xml" value="0.1355" />
         <entry key="app/src/main/res/drawable/shape_dot_active.xml" value="0.2255" />
@@ -29,28 +31,28 @@
         <entry key="app/src/main/res/drawable/shape_spread_button.xml" value="0.142" />
         <entry key="app/src/main/res/drawable/shape_stroke.xml" value="0.2395" />
         <entry key="app/src/main/res/drawable/shape_text_image_count.xml" value="0.1515" />
-        <entry key="app/src/main/res/layout/activity_comment.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/activity_image_picker.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/activity_comment.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_image_picker.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.125" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_sign_up_auth_code.xml" value="0.11" />
-        <entry key="app/src/main/res/layout/activity_sign_up_birthday.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/activity_sign_up_auth_code.xml" value="0.14" />
+        <entry key="app/src/main/res/layout/activity_sign_up_birthday.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_sign_up_confirmation.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_sign_up_id.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_sign_up_name.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_sign_up_name.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_sign_up_password.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_sign_up_phone_number.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/activity_sign_up_terms.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_sign_up_terms.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_sign_up_user_name.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_start.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_write_feed.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_mypage.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_mypage_feedlist.xml" value="0.2006340579710145" />
-        <entry key="app/src/main/res/layout/fragment_mypage_taglist.xml" value="0.2006340579710145" />
+        <entry key="app/src/main/res/layout/fragment_mypage_taglist.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_sign_up_id_email.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/fragment_sign_up_id_phone.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_sign_up_id_phone.xml" value="0.33" />
         <entry key="app/src/main/res/layout/view_comment.xml" value="0.33" />
         <entry key="app/src/main/res/layout/view_comment_feed.xml" value="0.15942028985507245" />
         <entry key="app/src/main/res/layout/view_edittext_login.xml" value="0.22447916666666667" />

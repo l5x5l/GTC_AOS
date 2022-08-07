@@ -1,6 +1,8 @@
 package com.softsquared.gridge_test.android.instagram_challenge.page.comment
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -44,18 +46,19 @@ class CommentActivity : BaseActivity<ActivityCommentBinding>(R.layout.activity_c
             }
         }
 
-        val feed = intent.getSerializableExtra(FEED) as FeedData
-        if (feed.id== -1) {
+        val feed = intent.getSerializableExtra(FEED) as FeedData?
+        if (feed == null) {
             showSimpleToastMessage(getString(R.string.message_not_exist_feed))
             finish()
         }
-        viewModel.setFeedId(feed.id)
+        viewModel.setFeedId(feed!!.id)
 
         binding.viewCommentFeed.feed = feed
 
         setRecyclerView()
         startPagingLoad()
         setButton()
+        setEdittext()
     }
 
     override fun setRecyclerView() {
@@ -67,6 +70,18 @@ class CommentActivity : BaseActivity<ActivityCommentBinding>(R.layout.activity_c
         binding.ivbtnBack.setOnClickListener {
             finish()
         }
+    }
+
+    private fun setEdittext(){
+        binding.etComment.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { }
+
+            override fun afterTextChanged(p0: Editable?) {
+                binding.tvbtnPostComment.isEnabled = (p0.toString().isNotEmpty())
+            }
+        })
     }
 
     // paging3 사용하는 부분 중복코드가 많다

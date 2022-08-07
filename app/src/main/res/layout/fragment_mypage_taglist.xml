@@ -39,6 +39,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_title"
             app:layout_constraintBottom_toBottomOf="parent"
+            style="@style/text_caption"
             android:text="@string/description_taged_photo_and_video"/>
 
 

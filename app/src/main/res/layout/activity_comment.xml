@@ -66,6 +66,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
+                            style="@style/text_title2"
                             android:text="@string/comment"/>
 
                         <androidx.appcompat.widget.AppCompatImageView
@@ -143,6 +144,7 @@
                     android:layout_weight="1"
                     android:maxLength="200"
                     android:text="@={viewModel.commentText}"
+                    android:hint="@string/add_comment"
                     android:layout_marginStart="@dimen/interval_middle"
                     android:background="@null"
                     android:textCursorDrawable="@drawable/shape_login_edit_text_cursor"/>
@@ -151,7 +153,8 @@
                     android:id="@+id/tvbtn_post_comment"
                     android:text="@string/posting"
                     android:paddingHorizontal="@dimen/interval_middle"
-                    android:textColor="@color/blue"
+                    android:textColor="@drawable/selector_text_button_color"
+                    android:enabled="false"
                     android:gravity="center_vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"

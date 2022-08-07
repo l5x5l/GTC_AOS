@@ -17,4 +17,5 @@
 
     <dimen name="toolbar_height">48dp</dimen>
     <dimen name="comment_bar_height">62dp</dimen>
+    <dimen name="checkbox_size">40dp</dimen>
 </resources>

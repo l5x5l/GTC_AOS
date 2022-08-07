@@ -40,6 +40,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            style="@style/text_title2"
             android:gravity="center"
             android:text="@string/new_feed"/>
 

@@ -22,4 +22,7 @@
 
     <color name="image_filter">#55FFFFFF</color>
     <color name="black_t60">#99000000</color>
+
+    <color name="subtext_color">#6c6c6c</color>
+    <color name="maintext_color">#000000</color>
 </resources>

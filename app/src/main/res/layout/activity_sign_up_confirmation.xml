@@ -46,6 +46,7 @@
             app:layout_constraintStart_toStartOf="@id/guide_content_start"
             app:layout_constraintEnd_toEndOf="@id/guide_content_end"
             app:layout_constraintTop_toBottomOf="@id/tv_title"
+            style="@style/text_caption"
             android:layout_marginTop="@dimen/interval_middle"
             android:text="@string/description_create_account_confirmation"
             android:gravity="center"/>

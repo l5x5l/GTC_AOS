@@ -14,6 +14,7 @@
         <!-- Customize your theme here. -->
         <item name="windowNoTitle">true</item>
         <item name="android:overScrollMode">never</item>
+        <item name="android:textColor">@color/maintext_color</item>
     </style>
     <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorAccent">@color/blue</item>

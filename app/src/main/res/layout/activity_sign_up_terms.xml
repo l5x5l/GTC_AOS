@@ -45,6 +45,7 @@
             app:layout_constraintStart_toStartOf="@id/guide_content_start"
             app:layout_constraintEnd_toEndOf="@id/guide_content_end"
             app:layout_constraintTop_toBottomOf="@id/tv_title"
+            style="@style/text_caption"
             android:paddingHorizontal="@dimen/layout_padding"
             android:layout_marginTop="@dimen/interval_middle"
             android:text="@string/description_agree_to_terms"
@@ -61,9 +62,10 @@
 
         <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/cb_agree_all"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/checkbox_size"
+            android:layout_height="@dimen/checkbox_size"
             android:checked="@{viewModel.agreeAll}"
+            style="@style/checkbox"
             app:layout_constraintEnd_toEndOf="@id/guide_content_end"
             app:layout_constraintTop_toTopOf="@id/tv_agree_all"
             app:layout_constraintBottom_toBottomOf="@id/tv_agree_all"/>
@@ -106,9 +108,10 @@
 
         <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/cb_terms_of_use"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/checkbox_size"
+            android:layout_height="@dimen/checkbox_size"
             android:checked="@{viewModel.agreeTermsOfUse}"
+            style="@style/checkbox"
             app:layout_constraintEnd_toEndOf="@id/guide_content_end"
             app:layout_constraintTop_toTopOf="@id/tv_terms_of_use"
             app:layout_constraintBottom_toBottomOf="@id/tvbtn_see_more_terms_of_use"/>
@@ -143,9 +146,10 @@
 
         <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/cb_data_policy"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/checkbox_size"
+            android:layout_height="@dimen/checkbox_size"
             android:checked="@{viewModel.agreeDataPolicy}"
+            style="@style/checkbox"
             app:layout_constraintEnd_toEndOf="@id/guide_content_end"
             app:layout_constraintTop_toTopOf="@id/tv_data_policy"
             app:layout_constraintBottom_toBottomOf="@id/tvbtn_see_more_data_policy"/>
@@ -180,9 +184,10 @@
 
         <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/cb_location_based_function"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/checkbox_size"
+            android:layout_height="@dimen/checkbox_size"
             android:checked="@{viewModel.agreeLocationBasedFunction}"
+            style="@style/checkbox"
             app:layout_constraintEnd_toEndOf="@id/guide_content_end"
             app:layout_constraintTop_toTopOf="@id/tv_location_based_function"
             app:layout_constraintBottom_toBottomOf="@id/tvbtn_see_more_location_based_function"/>
