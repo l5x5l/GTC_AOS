@@ -7,7 +7,8 @@ import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.softsquared.gridge_test.android.instagram_challenge.R
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseActivity
-import com.softsquared.gridge_test.android.instagram_challenge.base_component.FEED_ID
+import com.softsquared.gridge_test.android.instagram_challenge.base_component.FEED
+import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.FeedData
 import com.softsquared.gridge_test.android.instagram_challenge.databinding.ActivityCommentBinding
 import com.softsquared.gridge_test.android.instagram_challenge.recycler.adapter.CommentAdapter
 import kotlinx.coroutines.Job
@@ -23,12 +24,15 @@ class CommentActivity : BaseActivity<ActivityCommentBinding>(R.layout.activity_c
 
         binding.lifecycleOwner = this
 
-        val feedId = intent.getIntExtra(FEED_ID, -1)
-        if (feedId == -1) {
+
+        val feed = intent.getSerializableExtra(FEED) as FeedData
+        if (feed.id== -1) {
             showSimpleToastMessage(getString(R.string.message_not_exist_feed))
             finish()
         }
-        viewModel.setFeedId(feedId)
+        viewModel.setFeedId(feed.id)
+
+        binding.viewCommentFeed.feed = feed
 
         setRecyclerView()
         startPagingLoad()

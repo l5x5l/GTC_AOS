@@ -38,7 +38,8 @@
     <string name="posting">게시</string>
     <string name="feed">게시물</string>
     <string name="follower">팔로워</string>
-    <string name="following">팔로잉</string>
+    <string name="following">팔로잉</string>글
+    <string name="comment">댓글</string>
 
     <string name="try_again">다시 시도</string>
     <string name="do_sign_up">가입하기</string>

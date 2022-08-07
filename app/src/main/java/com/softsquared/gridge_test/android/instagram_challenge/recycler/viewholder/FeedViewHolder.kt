@@ -5,7 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.softsquared.gridge_test.android.instagram_challenge.R
-import com.softsquared.gridge_test.android.instagram_challenge.base_component.FEED_ID
+import com.softsquared.gridge_test.android.instagram_challenge.base_component.FEED
 import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.FeedData
 import com.softsquared.gridge_test.android.instagram_challenge.databinding.ViewSingleFeedBinding
 import com.softsquared.gridge_test.android.instagram_challenge.page.comment.CommentActivity
@@ -24,7 +24,7 @@ class FeedViewHolder(private val binding : ViewSingleFeedBinding) : RecyclerView
         })
         binding.tvbtnShowAllComment.setOnClickListener {
             val intent = Intent(binding.root.context, CommentActivity::class.java)
-            intent.putExtra(FEED_ID, binding.feedData?.id ?: -1)
+            intent.putExtra(FEED, binding.feedData)
             binding.root.context.startActivity(intent)
         }
     }
