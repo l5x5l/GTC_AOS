@@ -1,8 +1,10 @@
 package com.softsquared.gridge_test.android.instagram_challenge.page.comment
 
 import android.os.Bundle
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.softsquared.gridge_test.android.instagram_challenge.R
@@ -11,6 +13,7 @@ import com.softsquared.gridge_test.android.instagram_challenge.base_component.FE
 import com.softsquared.gridge_test.android.instagram_challenge.data.in_app.FeedData
 import com.softsquared.gridge_test.android.instagram_challenge.databinding.ActivityCommentBinding
 import com.softsquared.gridge_test.android.instagram_challenge.recycler.adapter.CommentAdapter
+import com.softsquared.gridge_test.android.instagram_challenge.utils.moveToLoginPage
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -23,7 +26,23 @@ class CommentActivity : BaseActivity<ActivityCommentBinding>(R.layout.activity_c
         super.onCreate(savedInstanceState)
 
         binding.lifecycleOwner = this
+        binding.viewModel = viewModel
 
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.postCommentResult.collect{ resultCode ->
+                    when (resultCode) {
+                        1000 -> {
+                            binding.etComment.setText("")
+                            (binding.rvComment.adapter as CommentAdapter).refresh()
+                        }
+                        3001 -> {
+                            moveToLoginPage(this@CommentActivity)
+                        }
+                    }
+                }
+            }
+        }
 
         val feed = intent.getSerializableExtra(FEED) as FeedData
         if (feed.id== -1) {
@@ -46,7 +65,7 @@ class CommentActivity : BaseActivity<ActivityCommentBinding>(R.layout.activity_c
 
     override fun setButton() {
         binding.ivbtnBack.setOnClickListener {
-            refreshList()
+            finish()
         }
     }
 
@@ -58,10 +77,5 @@ class CommentActivity : BaseActivity<ActivityCommentBinding>(R.layout.activity_c
                 (binding.rvComment.adapter as CommentAdapter).submitData(pagingData)
             }
         }
-    }
-
-    private fun refreshList() {
-        pagingJob?.cancel()
-        startPagingLoad()
     }
 }

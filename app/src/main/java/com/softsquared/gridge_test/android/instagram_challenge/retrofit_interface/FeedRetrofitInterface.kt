@@ -1,6 +1,7 @@
 package com.softsquared.gridge_test.android.instagram_challenge.retrofit_interface
 
 import com.softsquared.gridge_test.android.instagram_challenge.base_component.BaseApiResponse
+import com.softsquared.gridge_test.android.instagram_challenge.data.api.request.RequestCommentCreate
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.request.RequestFeedCreate
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.response.ResponseComments
 import com.softsquared.gridge_test.android.instagram_challenge.data.api.response.ResponseFeeds
@@ -19,4 +20,7 @@ interface FeedRetrofitInterface {
 
     @GET("app/feeds/user")
     suspend fun getUserFeeds(@Query("pageIndex") pageIdx : Int, @Query("size") size : Int, @Query("loginId") loginId : String) : Response<BaseApiResponse<ArrayList<ResponseFeeds>>>
+
+    @POST("app/feeds/{feedId}/comment")
+    suspend fun postComment(@Path("feedId") feedId: Int, @Body params : RequestCommentCreate) : Response<BaseApiResponse<Nothing>>
 }

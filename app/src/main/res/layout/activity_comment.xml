@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.softsquared.gridge_test.android.instagram_challenge.page.comment.CommentViewModel" />
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -135,6 +141,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:maxLength="200"
+                    android:text="@={viewModel.commentText}"
                     android:layout_marginStart="@dimen/interval_middle"
                     android:background="@null"
                     android:textCursorDrawable="@drawable/shape_login_edit_text_cursor"/>
@@ -146,7 +154,8 @@
                     android:textColor="@color/blue"
                     android:gravity="center_vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:onClick="@{() -> viewModel.tryPostComment()}"/>
 
             </LinearLayout>
 
