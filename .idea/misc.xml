@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_add_profile.xml" value="0.1075" />
         <entry key="app/src/main/res/drawable/ic_cake.xml" value="0.119" />
         <entry key="app/src/main/res/drawable/ic_eye_deactivate.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_like_stroke.xml" value="0.1425" />

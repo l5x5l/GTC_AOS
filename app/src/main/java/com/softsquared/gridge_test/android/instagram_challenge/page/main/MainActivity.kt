@@ -53,6 +53,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                         }
                         else {
                             supportFragmentManager.beginTransaction().hide(currentFragment).show(mypageFragment).commit()
+                            mypageFragment.refreshFeedList()
                         }
                         currentFragment = mypageFragment
                     }

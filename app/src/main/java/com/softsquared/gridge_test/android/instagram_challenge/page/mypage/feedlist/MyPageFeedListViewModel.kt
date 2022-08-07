@@ -15,5 +15,5 @@ class MyPageFeedListViewModel : BaseViewModel() {
 
     var pagingFlow = Pager(PagingConfig(pageSize)) {
         FeedPagingSource(repository = repository, pageSize = pageSize, loginId = GlobalApplication.getLoginId())
-    }.flow.cachedIn(viewModelScope)
+    }.flow
 }

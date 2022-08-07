@@ -57,8 +57,8 @@ class MyPageFragment : BaseFragment<FragmentMypageBinding>(FragmentMypageBinding
     }
 
     private fun setButton(){
-        binding.layoutbtnFeed.setOnClickListener {
-
+        binding.ivbtnMenu.setOnClickListener {
+            moveToLoginPage(activity as BaseActivity<*>)
         }
 
         binding.layoutbtnTaged.setOnClickListener {
@@ -84,5 +84,9 @@ class MyPageFragment : BaseFragment<FragmentMypageBinding>(FragmentMypageBinding
                 currentFragment = feedFragment
             }
         }
+    }
+
+    fun refreshFeedList(){
+        feedFragment.refreshFeedList()
     }
 }

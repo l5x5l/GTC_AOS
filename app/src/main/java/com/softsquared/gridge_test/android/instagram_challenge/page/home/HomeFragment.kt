@@ -46,11 +46,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
         feedWriteResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
             if (result.resultCode == AppCompatActivity.RESULT_OK) {
+                startPagingLoad()
                 (binding.rvFeed.adapter as FeedAdapter).refresh()
             }
         }
 
         binding.layoutRefresh.setOnRefreshListener {
+            startPagingLoad()
             (binding.rvFeed.adapter as FeedAdapter).refresh()
         }
         startPagingLoad()
@@ -85,6 +87,4 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         binding.rvFeed.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.rvFeed.adapter = FeedAdapter()
     }
-
-
 }
